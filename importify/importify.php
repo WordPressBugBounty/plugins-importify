@@ -7,7 +7,7 @@
 /**
  * Plugin Name: Importify
  * Description: Easily import best-selling products, and automate your entire dropshipping process, all with a single click.
- * Version: 1.0.6
+ * Version: 1.0.7
  * Author: Importify
  * Author URI: https://www.importify.com/
  * License: GPLv3 or later
@@ -37,9 +37,10 @@ function importify_activation_hook()
 	$data = array(
 		'store' => get_site_url(),
     'email' => get_option('admin_email'),
-		'event' => 'install'
+		'event' => 'install',
 	);
 
+  
 	$response = importify_send_request('/woocomerce/status', $data);
 
 	if ($response)
@@ -148,10 +149,13 @@ function importify_uninstall_hook()
 
 function importify_add_admin_css_js()
 {
+  
 	wp_register_style('importify_style', IMPORTIFY_URL.'/assets/css/style.css');
   wp_enqueue_style('importify_style');
   wp_register_script('importify-admin', IMPORTIFY_URL.'/assets/js/script.js', array('jquery'), '1.0.0');
   wp_enqueue_script('importify-admin');
+  wp_register_script('importify-admin-feather', IMPORTIFY_URL.'/assets/js/feather.min.js');
+  wp_enqueue_script('importify-admin-feather');
 }
 
 function importify_admin_menu()
@@ -171,6 +175,8 @@ function importify_admin_menu_page_html()
     'event' => 'check_status'
   );
   
+  $store_connected = false;
+
   $status_response = importify_send_request('/woocomerce/status', $data);
 
   if ($status_response && $status_response['success'] == 0)
@@ -219,7 +225,46 @@ function importify_admin_menu_page_html()
     {
       update_option('importify_api_key',$status_response['api_key']);
     }
+
+    if(isset($status_response['store_connected']) && $status_response['store_connected'] == "yes")
+    {
+      $store_connected = true;
+    }
   }
+
+  add_option('importify_check', array());
+  $tmp_check_data = array();
+
+  if(is_ssl())
+  {
+    $tmp_check_data['ssl_active'] = "true";
+  }
+  else
+  {
+    $tmp_check_data['ssl_active'] = "false";
+  }
+
+  $tmp_check_data['permalinks'] = get_option( 'permalink_structure' );
+  $tmp_check_data['woocomerce_installed'] = importify_has_woocommerce();
+  $tmp_check_data['firewall_active'] = false;
+
+  // Checking if we have a plugin with firewall option if store is not connected
+  if($store_connected == FALSE)
+  {
+    $plugin_list = get_plugins();
+
+    foreach ($plugin_list as $key => $value) 
+    {
+      $plugin_name = strtolower($value['Name']);
+
+      if(strpos($plugin_name, "wordfence") !== FALSE || strpos($plugin_name, "jetpack") !== FALSE || strpos($plugin_name, "sucuri") !== FALSE || strpos($plugin_name, "ninjafirewall") !== FALSE)
+      {
+        $tmp_check_data['firewall_active'] = true;
+      }
+    }
+  }
+
+  update_option('importify_check', $tmp_check_data);
 
 	include_once IMPORTIFY_PATH.'/views/importify_admin_page.php';
 }

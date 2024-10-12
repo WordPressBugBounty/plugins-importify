@@ -5,7 +5,7 @@ Tags: Dropshipping, Dropship, Aliexpress, Amazon, Etsy
 Requires at least: 3.1
 Requires PHP: 5.4
 Tested up to: 6.6.1
-Stable tag: 1.0.6
+Stable tag: 1.0.7
 Plugin URI: https://importify.com
 License: proprietary
 
