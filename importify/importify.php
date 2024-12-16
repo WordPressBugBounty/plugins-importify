@@ -7,7 +7,7 @@
 /**
  * Plugin Name: Importify
  * Description: Easily import best-selling products, and automate your entire dropshipping process, all with a single click.
- * Version: 1.0.7
+ * Version: 1.0.8
  * Author: Importify
  * Author URI: https://www.importify.com/
  * License: GPLv3 or later
@@ -19,7 +19,7 @@ if (!defined('ABSPATH')) {
 }
 
 define("IMPORTIFY_API_URL", "https://app.importify.net/dashboard");
-define('IMPORTIFY_VERSION', '1.0.5');
+define('IMPORTIFY_VERSION', '1.0.8');
 define('IMPORTIFY_PATH', dirname(__FILE__));
 define('IMPORTIFY_FOLDER', basename(IMPORTIFY_PATH));
 define('IMPORTIFY_URL', plugins_url() . '/' . IMPORTIFY_FOLDER);
@@ -244,13 +244,31 @@ function importify_admin_menu_page_html()
     $tmp_check_data['ssl_active'] = "false";
   }
 
-  $tmp_check_data['permalinks'] = get_option( 'permalink_structure' );
+  $tmp_check_data['permalinks']           = get_option( 'permalink_structure' );
   $tmp_check_data['woocomerce_installed'] = importify_has_woocommerce();
-  $tmp_check_data['firewall_active'] = false;
+  $tmp_check_data['firewall_active']      = false;
+  $tmp_check_data['cloudflare_active']    = false;
 
   // Checking if we have a plugin with firewall option if store is not connected
   if($store_connected == FALSE)
   {
+    // Checking for Cloudflare presence
+    $data = array(
+      'store' => get_site_url(),
+      'event' => 'check_cloudflare'
+    );
+
+
+    $cloudflare_check = importify_send_request('/woocomerce/status', $data);
+
+    if($cloudflare_check && $cloudflare_check['success'] == 1)
+    {
+      if($cloudflare_check['cloudflare_enabled'] == "true")
+      {
+        $tmp_check_data['cloudflare_active'] = true;
+      }
+    }
+
     $plugin_list = get_plugins();
 
     foreach ($plugin_list as $key => $value) 

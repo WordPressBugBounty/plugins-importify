@@ -17,7 +17,7 @@ $importify_check = get_option('importify_check');
 
 $show_error_design = false;
 
-if($importify_check['ssl_active'] == "false" || strlen($importify_check['permalinks']) < 1 || $importify_check['woocomerce_installed'] == FALSE  || $importify_check['firewall_active'] == TRUE)
+if($importify_check['ssl_active'] == "false" || strlen($importify_check['permalinks']) < 1 || $importify_check['woocomerce_installed'] == FALSE  || $importify_check['firewall_active'] == TRUE || $importify_check['cloudflare_active'] == TRUE)
 {
 	$show_error_design = true;
 }
@@ -92,6 +92,16 @@ $button_prop = IMPORTIFY_API_URL.'/woocomerce/login-by-token?token='.$api_key;
                         <td><a href="https://help.importify.com/article/526/importify-woocommerce-store-connection-troubleshooting-guide" class="text-blue-600 hover:underline" target="_blank">Configure Firewall</a></td>
                     </tr>
                     <?php
+                      }
+                      if($importify_check['cloudflare_active'])
+                      {
+                      ?>
+                        <tr>
+                          <td>Security Plugins</td>
+                          <td class="status-critical">Cloudflare Block</td>
+                          <td><a href="https://help.importify.com/article/562/how-to-fix-woocommerce-api-issues-caused-by-cloudflare" class="text-blue-600 hover:underline" target="_blank">Cloudflare Fix</a></td>
+                      </tr>
+                      <?php
                       }
                     ?>
                 </tbody>
