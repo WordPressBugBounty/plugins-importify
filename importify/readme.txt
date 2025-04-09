@@ -4,8 +4,8 @@ Donate link:  https://importify.com
 Tags: Dropshipping, Dropship, Aliexpress, Amazon, Etsy
 Requires at least: 3.1
 Requires PHP: 5.4
-Tested up to: 6.7.1
-Stable tag: 1.0.8
+Tested up to: 6.8
+Stable tag: 1.0.9
 Plugin URI: https://importify.com
 License: proprietary
 
