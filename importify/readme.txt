@@ -5,7 +5,7 @@ Tags: Dropshipping, Dropship, Aliexpress, Amazon, Etsy
 Requires at least: 3.1
 Requires PHP: 5.4
 Tested up to: 6.8
-Stable tag: 1.0.9
+Stable tag: 1.0.10
 Plugin URI: https://importify.com
 License: proprietary
 
@@ -14,7 +14,7 @@ Importify is a dropshipping app that allows you to find products from a variety 
 
 == Description ==
 
-= The Importify WooCommerce plugin simplifies your dropshipping business by allowing easy product discovery and import from major marketplaces like AliExpress, Alibaba, Amazon, Etsy, Walmart, and Taobao. It helps optimize product descriptions and pricing for higher profits and provides a straightforward dashboard for efficient order management and order fulfillment. This tool saves time, letting you focus on growing your business, managing inventory, and finding reliable dropshipping suppliers. With Importify, importing products becomes effortless, helping you expand your offerings and grow your dropshipping business.
+= The Importify WooCommerce plugin simplifies your dropshipping business by allowing easy product discovery and import from major marketplaces like AliExpress, Alibaba, Amazon, Etsy, Walmart, and Taobao. It helps optimize product descriptions, pricing, and titles using cutting-edge AI (GPT-4.1), providing a straightforward dashboard for efficient order management and fulfillment. This tool saves time, letting you focus on growing your business, managing inventory, and finding reliable dropshipping suppliers. With Importify, importing products becomes effortless, helping you expand your offerings and grow your dropshipping business.
  =
 
 [youtube  https://www.youtube.com/watch?v=DanHmNwqgOI&t]
@@ -46,6 +46,25 @@ Quickly update and override existing products in your store with just a few clic
 
 *  <strong>Flexible Price Markup System:</strong> 
 Set your prices using three different types of price markup calculation. Importify offers versatile pricing options to help you maximize your profit margins and stay competitive in the market.
+
+*  <strong>✨ New: AI Product Optimizer</strong> 
+With Importify's AI Product Optimizer (powered by GPT-4.1), you can instantly generate high-converting product titles and descriptions.
+Key features:
+Improve Title, Description, or Both automatically
+Translate into multiple languages with original structure preserved
+Choose output Style and Target Audience
+Supports both LTR and RTL languages
+(Requires a Premium or Gold plan and a personal OpenAI API Key.)
+<a href="https://help.importify.com/article/581/how-to-create-a-high-converting-product-page-using-importifys-ai-optimizer" target="_blank">Learn more about AI Optimizer</a>
+
+*  <strong>🚀 New: Currency Conversion Tool</strong> 
+Automatically adjust supplier prices into your store currency with Importify's built-in Currency Conversion feature.
+Key features:
+Convert product costs from suppliers like AliExpress, Taobao, 1688, etc.
+One-click update for all currency rates
+Support for major world currencies
+Ensure accurate markup after conversion
+<a href="https://help.importify.com/article/333/how-to-manage-currency-for-imported-products" target="_blank">Learn more about Currency Management</a>
 
 
 
