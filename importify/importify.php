@@ -7,7 +7,7 @@
 /**
  * Plugin Name: Importify
  * Description: Easily import best-selling products, and automate your entire dropshipping process, all with a single click.
- * Version: 1.0.10
+ * Version: 1.0.11
  * Author: Importify
  * Author URI: https://www.importify.com/
  * License: GPLv3 or later
@@ -19,7 +19,7 @@ if (!defined('ABSPATH')) {
 }
 
 define("IMPORTIFY_API_URL", "https://app.importify.net/dashboard");
-define('IMPORTIFY_VERSION', '1.0.10');
+define('IMPORTIFY_VERSION', '1.0.11');
 define('IMPORTIFY_PATH', dirname(__FILE__));
 define('IMPORTIFY_FOLDER', basename(IMPORTIFY_PATH));
 define('IMPORTIFY_URL', plugins_url() . '/' . IMPORTIFY_FOLDER);
@@ -296,6 +296,7 @@ function importify_send_request($path, $data)
 		  'x-plugin-version' => IMPORTIFY_VERSION,
 		  'x-site-url' => get_site_url(),
 		  'x-wp-version' => get_bloginfo('version'),
+      ''
 		);
 
     if (importify_has_woocommerce()) 
@@ -309,11 +310,12 @@ function importify_send_request($path, $data)
       'body' => json_encode($data),
       'method' => 'POST',
       'data_format' => 'body',
-      'sslverify' => false
+      'sslverify' => false,
+      'user-agent' => "Importify Wp Plugin"
     );
    
     $response = wp_remote_post($url, $data);
-   
+    
    	if (!is_wp_error($response)) 
 		{
 	  	$decoded_response = json_decode(wp_remote_retrieve_body($response), true);
@@ -330,6 +332,7 @@ function importify_send_request($path, $data)
       echo $err;
     }
   }
+
 }
 
 

@@ -1,11 +1,11 @@
-=== Importify - Dropshipping WooCommerce Plugin for Aliexpress, Amazon, Etsy, Alibaba, Walmart & More ===
+=== Importify – AI Dropshipping Plugin for WooCommerce, Shopify, Wix & Jumpseller | AliExpress, Amazon, Alibaba, Etsy, Walmart & 25+ Marketplaces ===
 Contributors: Importify
 Donate link:  https://importify.com
 Tags: Dropshipping, Dropship, Aliexpress, Amazon, Etsy
 Requires at least: 3.1
 Requires PHP: 5.4
 Tested up to: 6.8
-Stable tag: 1.0.10
+Stable tag: 1.0.11
 Plugin URI: https://importify.com
 License: proprietary
 
@@ -14,83 +14,195 @@ Importify is a dropshipping app that allows you to find products from a variety 
 
 == Description ==
 
-= The Importify WooCommerce plugin simplifies your dropshipping business by allowing easy product discovery and import from major marketplaces like AliExpress, Alibaba, Amazon, Etsy, Walmart, and Taobao. It helps optimize product descriptions, pricing, and titles using cutting-edge AI (GPT-4.1), providing a straightforward dashboard for efficient order management and fulfillment. This tool saves time, letting you focus on growing your business, managing inventory, and finding reliable dropshipping suppliers. With Importify, importing products becomes effortless, helping you expand your offerings and grow your dropshipping business.
- =
+Importify is the all-in-one dropshipping plugin designed for WooCommerce stores, helping
+you easily import and sell products from over 25 top global marketplaces, including
+AliExpress, Amazon, Alibaba, Etsy, Walmart, Taobao, 1688, Temu, Shein, Banggood,
+CJDropshipping, and many more.
+
+<strong>Why Importify?</strong>
+
+Importify empowers dropshippers and ecommerce entrepreneurs to build profitable stores
+without holding inventory. With powerful automation, AI-powered content optimization,
+advanced pricing tools, and seamless integration with WooCommerce and other platforms,
+Importify simplifies every step of the dropshipping journey.
+ 
 
 [youtube  https://www.youtube.com/watch?v=DanHmNwqgOI&t]
 
-##►What are the main features of Importify?##
-*  <strong>Find Best Selling Products:</strong> Research and identify top-performing dropshipping products in various niches, giving you a competitive advantage in the dropshipping market.
+##Key Features and Benefits##
+🌍  <strong>Support for 25+ Marketplaces and Suppliers Worldwide</strong> </br>
+Import products from a wide variety of global and regional suppliers, including but not limited to:
 
-
-*  <strong>Import Products from Multiple Suppliers: </strong> 
-Easily import products from a wide range of US and Chinese suppliers, including Aliexpress, Amazon, Dhgate, Etsy, Alibaba, Temu, Banggood, Cjdropshipping, Taobao, 1688, Tmall, Walmart, Geekbuying, Jd.com, Kohls, Rosegal, Wish, Costco, Snapdeal, Bedbathandbeyond, Tomtop, Flipkart, Bonanza, Ltdcommodities, Shein, Allstarhealth, Lazada, Shopee, and SaleYee.
-
-
-*  <strong>Semi-Automatic Order Fulfillment:</strong> 
-Streamline your order processing with Importify's semi-automatic order fulfillment feature. It automatically pre-populates customer addresses on the checkout page, saving you time and effort. This feature works seamlessly with Aliexpress, Amazon, and Dhgate.
-
-
-*  <strong>Customizable Product Details:</strong> 
-Importify allows you to easily modify the title, description, images, variants, and pricing of the imported products. Tailor the product information to align with your brand and target audience..
-
-*  <strong>Variant Management and Splitting:</strong>
-Importify provides advanced features to efficiently manage your product variants and optimize your catalog structure. With our powerful split variant functionality, you can easily separate product variants into individual listings, giving you greater control and flexibility.
-
-
-*  <strong>Supplier Switching:</strong> 
-Replace your product vendor with a new supplier and connect them to your store with just a click. Importify makes it simple to switch suppliers without disrupting your store's operations.
-
-*  <strong>Override Existing Products:</strong> 
-Quickly update and override existing products in your store with just a few clicks. Importify's override function simplifies product management and keeps your store up to date.
-
-*  <strong>Flexible Price Markup System:</strong> 
-Set your prices using three different types of price markup calculation. Importify offers versatile pricing options to help you maximize your profit margins and stay competitive in the market.
-
-*  <strong>✨ New: AI Product Optimizer</strong> 
-With Importify's AI Product Optimizer (powered by GPT-4.1), you can instantly generate high-converting product titles and descriptions.
-Key features:
-Improve Title, Description, or Both automatically
-Translate into multiple languages with original structure preserved
-Choose output Style and Target Audience
-Supports both LTR and RTL languages
-(Requires a Premium or Gold plan and a personal OpenAI API Key.)
-<a href="https://help.importify.com/article/581/how-to-create-a-high-converting-product-page-using-importifys-ai-optimizer" target="_blank">Learn more about AI Optimizer</a>
-
-*  <strong>🚀 New: Currency Conversion Tool</strong> 
-Automatically adjust supplier prices into your store currency with Importify's built-in Currency Conversion feature.
-Key features:
-Convert product costs from suppliers like AliExpress, Taobao, 1688, etc.
-One-click update for all currency rates
-Support for major world currencies
-Ensure accurate markup after conversion
-<a href="https://help.importify.com/article/333/how-to-manage-currency-for-imported-products" target="_blank">Learn more about Currency Management</a>
+* AliExpress
+* Amazon (Premium & Gold plans)
+* Alibaba
+* Etsy
+* Walmart
+* Taobao
+* 1688
+* Temu
+* Shein
+* Banggood
+* CJDropshipping
+* Dhgate
+* Flipkart
+* Snapdeal
+* Lazada
+* Shopee
+* Nordstrom
+* Kohls
+* Costco
+* Bed Bath & Beyond
+…and many more trusted suppliers for all product niches.
 
 
 
-   ##►WHAT TYPES OF PRODUCTS CAN YOU DROPSHIP WITH IMPORTIFY?##
-Whether you're interested in niche or mainstream products, Importify has you covered with a diverse range of categories to choose from.
+🚀  <strong>One-Click Product Import and Customization </strong> 
 
-Products you can sell: Arts and crafts, Automotive, Baby products, Bags and luggages, Business and office, Clothing and accessories, Electronics, Entertainment and media, Food and drinks, Furniture, Hardware, Health and beauty, Home and garden, Mature products, Pet products, Sports products, Toys and games.
+Importify makes product sourcing lightning-fast:
 
+* One-click import of product images, titles, variants, descriptions, and pricing from
+supported marketplaces.
 
-   ##►WHAT SETS IMPORTIFY APART FROM OTHER DROPSHIPPING PLUGINS?##
-With an impressive 7-year track record, Importify has established itself as a trusted and reliable dropshipping solution. Our app has been featured on the official websites of Shopify, Wix, and WooCommerce, showcasing our strong partnerships and integrations with these leading e-commerce platforms. Moreover, Importify was recently recognized by Cloudways and Investopedia as one of the best dropshipping tools for 2024, further solidifying our position as a top choice for entrepreneurs and business owners.
+* Edit and customize product titles, descriptions, images, variants, and prices before
+importing.
 
+* Full control over product details ensures your listings are unique and brand-aligned.
 
-
-   ##►WHAT ARE THE MINIMUM REQUIREMENTS?##
-To use the Importify plugin on your WordPress website, make sure you have the following:
-
-1. WooCommerce plugin installed and activated
-2. WordPress permalinks set to anything except "plain" (go to "Settings" -> "Permalinks")
-3. An SSL certificate installed for a secure connection (https://)
-4. Google Chrome browser or Edge installed to use the Importify Google Chrome extension
-5. Coming Soon, Under Construction & Maintenance Mode turned off on your website.
+* Import from any public Shopify store using Edge extensions for cross-platform product
+migration.
 
 
+🤖  <strong>AI Product Optimizer (Premium & Gold Plans)</strong> 
+Powered by the latest <strong>GPT-4.1 AI technology </strong>, Importify’s AI Product Optimizer:
 
-   ##►HOW TO REGISTER AND INSTALL THE IMPORTIFY APP?##
+* Rewrites and optimizes product titles and descriptions to be benefit-driven, clear, and
+SEO-friendly.
+
+* Lets you define your <strong> brand voice, writing style, and target audience </strong>(e.g., parents, gamers,
+pet owners, budget buyers, premium shoppers).
+
+* Automatically generates FAQ sections to reduce buyer hesitation and support questions.
+
+* Adds trust sections with shipping, returns, and refund policies tailored to your store
+region.
+
+* Supports translation and localization for over 20 languages including RTL languages.
+
+* Helps you build high-converting product pages faster without needing copywriting skills.
+
+
+🌐  <strong>One-Click Translation and Localization</strong> 
+
+Expand your store’s global reach with Importify’s instant translation feature:
+
+* Translate product titles, descriptions, variants, FAQ, and trust content into 20+ languages.
+* Perfect for importing from non-English suppliers like Taobao, 1688, and Tmall.
+* Localize content while preserving original formatting and structure.
+* Boost international conversions and customer trust.
+
+💱  <strong>Automated Currency Conversion with Live Exchange Rates</strong>
+
+Importify automatically detects the supplier’s currency and converts product costs into your store’s currency:
+
+* Supports major world currencies like USD, EUR, CAD, AUD, GBP , and more.
+* Ensures accurate pricing and profit margin calculations with real-time exchange rates.
+* Flexible toggle to enable or disable currency conversion as needed.
+* Works seamlessly with smart pricing rules.
+
+💰  <strong>Smart Pricing Rules</strong> 
+
+Set up powerful pricing strategies to maximize profits and stay competitive:
+
+* Apply fixed amount or percentage markups on supplier prices automatically.
+* Round prices to psychological endings like .99 or .95 for better sales appeal.
+* Set different pricing rules for different cost ranges.
+* Preview price changes before import to avoid surprises.
+
+🧩  <strong>Variant Management and Splitting</strong> 
+
+Take control of your product catalog with advanced variant options:
+
+* Import all variants or select specific ones to offer.
+* Split multi-variant products into separate listings for better SEO, targeted marketing, and
+inventory management.
+* Customize variant names, SKUs, and pricing individually.
+
+🗂  <strong>Auto Assign Collections</strong> 
+
+Keep your store organized without manual sorting:
+* Automatically assign imported products to the correct collections.
+* Maintain a neat, customer-friendly storefront that boosts sales and usability.
+
+🔄  <strong>Switch Suppliers & Override Existing Products</strong> 
+
+Change suppliers or connect existing products without disruption:
+
+* Easily switch the vendor source for any product without losing SEO, URLs, or reviews.
+* Connect products already in your WooCommerce store to Importify for streamlined
+management.
+* Great for supplier testing, pricing optimization, and fulfillment upgrades.
+
+🚚  <strong>Automatic Order Fulfillment (Gold Plan - AliExpress Only)</strong> 
+
+Save time fulfilling orders from AliExpress:
+
+* Automatically pre-fill customer shipping details and select correct variants on the
+AliExpress checkout page.
+* Quickly create draft orders with accurate info — no copy-pasting or manual entry needed.
+
+   ##►What You Can Dropship with Importify##
+
+Importify covers all popular product categories, making it easy to build niche or general stores:
+
+* Arts & Crafts
+* Automotive Accessories
+* Baby & Kids Products
+* Bags & Luggage
+* Business & Office Supplies
+* Clothing & Fashion Accessories
+* Electronics & Gadgets
+* Entertainment & Media
+* Food & Beverage
+* Furniture & Home Decor
+* Hardware & Tools
+* Health & Beauty
+* Home & Garden
+* Mature Products
+* Pet Supplies
+* Sports Equipment
+* Toys & Games
+
+
+##►Why Importify Stands Out##
+
+* Over 7 years of trusted dropshipping experience and continuous improvement.
+* Featured and officially integrated with WooCommerce, Shopify, Wix, and Jumpseller.
+* Recognized by Cloudways for one of the best dropshipping tools for 2024.
+* Focus on building unique, high-converting product pages instead of bulk importing
+generic listings.
+* 24/7 customer support to assist you at every step.
+
+##►Minimum Requirements##
+
+* WooCommerce plugin installed and activated on your WordPress website.
+* WordPress permalinks set to anything except “plain” (Settings → Permalinks).
+* SSL certificate installed (HTTPS) for secure store operations.
+* Supported browsers: Chrome, Firefox, or Edge with Importify browser extension installed.
+* Premium or Gold plan + personal OpenAI API key required for AI Product Optimizer and
+translation features.
+
+##Start Building a Brand, Not Just a Store##
+
+In 2025, your success depends on how well you present your products — not just where you
+source them from. Importify helps you:
+Turn raw supplier listings into polished, benefit-driven, and brand-aligned product pages.
+Reduce customer support issues with clear FAQs and trust-building policies.
+Increase SEO rankings and conversions with smart titles and descriptions.
+Save time with automation while maintaining full control over product details and pricing.
+
+
+##►HOW TO REGISTER AND INSTALL THE IMPORTIFY APP?##
 
 [youtube  https://www.youtube.com/watch?v=BYtbZvU7d-o]
 
