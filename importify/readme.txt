@@ -1,11 +1,11 @@
-=== Importify – AI Dropshipping Plugin for WooCommerce, Shopify, Wix & Jumpseller | AliExpress, Amazon, Alibaba, Etsy, Walmart & 25+ Marketplaces ===
+=== Importify – AI Dropshipping for WooCommerce ===
 Contributors: Importify
 Donate link:  https://importify.com
 Tags: Dropshipping, Dropship, Aliexpress, Amazon, Etsy
 Requires at least: 3.1
 Requires PHP: 5.4
 Tested up to: 6.8
-Stable tag: 1.0.12
+Stable tag: 1.0.13
 Plugin URI: https://importify.com
 License: proprietary
 
@@ -21,9 +21,8 @@ CJDropshipping, and many more.
 
 <strong>Why Importify?</strong>
 
-Importify empowers dropshippers and ecommerce entrepreneurs to build profitable stores
-without holding inventory. With powerful automation, AI-powered content optimization,
-advanced pricing tools, and seamless integration with WooCommerce and other platforms,
+Importify helps dropshippers and ecommerce entrepreneurs run stores without holding inventory. With powerful automation, AI-powered content optimization,
+advanced pricing tools, and integration with WooCommerce and other platforms,
 Importify simplifies every step of the dropshipping journey.
  
 
@@ -53,13 +52,13 @@ Import products from a wide variety of global and regional suppliers, including 
 * Kohls
 * Costco
 * Bed Bath & Beyond
-…and many more trusted suppliers for all product niches.
+…and many more suppliers for all product niches.
 
 
 
 🚀  <strong>One-Click Product Import and Customization </strong> 
 
-Importify makes product sourcing lightning-fast:
+Importify makes product sourcing fast and simple:
 
 * One-click import of product images, titles, variants, descriptions, and pricing from
 supported marketplaces.
@@ -89,7 +88,7 @@ region.
 
 * Supports translation and localization for over 20 languages including RTL languages.
 
-* Helps you build high-converting product pages faster without needing copywriting skills.
+* Helps you create product pages with clear titles and descriptions.
 
 
 🌐  <strong>One-Click Translation and Localization</strong> 
@@ -99,7 +98,7 @@ Expand your store’s global reach with Importify’s instant translation featur
 * Translate product titles, descriptions, variants, FAQ, and trust content into 20+ languages.
 * Perfect for importing from non-English suppliers like Taobao, 1688, and Tmall.
 * Localize content while preserving original formatting and structure.
-* Boost international conversions and customer trust.
+* Support international reach and enhance customer confidence.
 
 💱  <strong>Automated Currency Conversion with Live Exchange Rates</strong>
 
@@ -132,7 +131,7 @@ inventory management.
 
 Keep your store organized without manual sorting:
 * Automatically assign imported products to the correct collections.
-* Maintain a neat, customer-friendly storefront that boosts sales and usability.
+* Maintain a neat, customer-friendly storefront that improves navigation and usability.
 
 🔄  <strong>Switch Suppliers & Override Existing Products</strong> 
 
@@ -141,7 +140,7 @@ Change suppliers or connect existing products without disruption:
 * Easily switch the vendor source for any product without losing SEO, URLs, or reviews.
 * Connect products already in your WooCommerce store to Importify for streamlined
 management.
-* Great for supplier testing, pricing optimization, and fulfillment upgrades.
+* Useful for supplier testing, pricing adjustments, and fulfillment updates.
 
 🚚  <strong>Automatic Order Fulfillment (Gold Plan - AliExpress Only)</strong> 
 
@@ -176,19 +175,18 @@ Importify covers all popular product categories, making it easy to build niche o
 
 ##►Why Importify Stands Out##
 
-* Over 7 years of trusted dropshipping experience and continuous improvement.
-* Featured and officially integrated with WooCommerce, Shopify, Wix, and Jumpseller.
+* Over 7 years of dropshipping experience.
+* Seamless integration with WooCommerce and support for 25+ top marketplaces.
 * Recognized by Cloudways for one of the best dropshipping tools for 2024.
-* Focus on building unique, high-converting product pages instead of bulk importing
-generic listings.
+* Focus on building product pages with clear titles and descriptions.
 * 24/7 customer support to assist you at every step.
 
 ##►Minimum Requirements##
 
 * WooCommerce plugin installed and activated on your WordPress website.
-* WordPress permalinks set to anything except “plain” (Settings → Permalinks).
-* SSL certificate installed (HTTPS) for secure store operations.
-* Supported browsers: Chrome, Firefox, or Edge with Importify browser extension installed.
+* WordPress permalinks set to anything except “plain.”
+* SSL certificate installed (HTTPS).
+* Supported browsers: Chrome, Firefox, or Edge with the Importify extension.
 * Premium or Gold plan + personal OpenAI API key required for AI Product Optimizer and
 translation features.
 
@@ -315,13 +313,10 @@ It was very important for us to make Importify user-friendly and very easy to us
 To run Importify, you must use the Google Chrome Browser. (For Importify Google Chrome extension to work)
 
 ##<strong>►HOW DOES THE FREE TRIAL WORKS?</strong>##
-When starting your free trial, you’ll be able to use Importify immediately. Your billing cycle will start when the trial ends.
+You can start using Importify immediately with a free trial. Billing begins once the trial period ends.
 
 ##<strong>►CAN I CANCEL MY ACCOUNT AT ANY TIME?</strong>##
 If you ever decide that this isn’t the right solution for your business, simply cancel your recurring payment.
-
-##THE BEST ALTERNATIVE TO ALIDROPSHIP, ALI DROPSHIP, WOODROPSHIP, DROPSHIPME, KNAWAT, CARTFLOWS, OBERLO, DROPIFIED, SPOCKET, AUTODS, CJDROPSHIPPING, DSERS, EPROLO, ZENDROP, TRENDSI, ZOPI, HYPERSKU, DROPSHIPMAN, SYNCEE, MODALYST, TOPDSER, DROPCOMMERCE, AUTOMIZELY, ALD, DROPSHIPPING AND FULFILLMENT FOR ALIEXPRESS AND WOOCOMMERCE, ALIEXPRESS DROPSHIPPING FOR WOOCOMMERCE BY THESHARK, ALIEXPRESS DROPSHIPPING WITH ALI2WOO LITE, KNAWAT WOOCOMMERCE DROPSHIPPING, THESHARK DROPSHIPPING FOR ALIEXPRESS, EBAY, AMAZON, ETSY AND WOOCOMMERCE, SPREADR WOOCOMMERCE PLUGIN – AMAZON IMPORTER FOR DROPSHIPPING AND AFFILIATE, DROPSHIPPING & AFFILIATION WITH AMAZON
-
 
 == Installation ==
 Importify plugin installation is as easy as it gets, it works with both WordPress and WooCommerce on your website.
@@ -344,8 +339,8 @@ Using Importify you can import products from Aliexpress, Amazon, DhGate, Etsy, A
 = Will I need a web developer to handle code embedding? =
 No need, after installing the plugin and the chrome extension, you're good to go!
 
-= How much does Importify costs? =
-Importify offers a 1 day free trial, for more details about our plans please visit our <a href="https://www.importify.com/pricing" target="_blank"> pricing page</a>
+= How much does Importify cost? =
+Importify offers a free trial, for more details about our plans please visit our <a href="https://www.importify.com/pricing" target="_blank"> pricing page</a>
 
 = How do I reach out to Importify's customer support? =
 You can contact our support by using<a href="https://www.importify.com/?fluent-form=3" target="_blank"> this form.</a>
@@ -371,6 +366,7 @@ You can contact our support by using<a href="https://www.importify.com/?fluent-f
 
 = 1.0.5=
 * Bug fixes.
+
 
 == Upgrade Notice ==
 .
