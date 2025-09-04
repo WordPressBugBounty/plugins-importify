@@ -7,7 +7,7 @@
 /**
  * Plugin Name: Importify
  * Description: Easily import best-selling products, and automate your entire dropshipping process, all with a single click.
- * Version: 1.0.11
+ * Version: 1.0.12
  * Author: Importify
  * Author URI: https://www.importify.com/
  * License: GPLv3 or later
@@ -19,7 +19,7 @@ if (!defined('ABSPATH')) {
 }
 
 define("IMPORTIFY_API_URL", "https://app.importify.net/dashboard");
-define('IMPORTIFY_VERSION', '1.0.11');
+define('IMPORTIFY_VERSION', '1.0.12');
 define('IMPORTIFY_PATH', dirname(__FILE__));
 define('IMPORTIFY_FOLDER', basename(IMPORTIFY_PATH));
 define('IMPORTIFY_URL', plugins_url() . '/' . IMPORTIFY_FOLDER);
@@ -293,6 +293,7 @@ function importify_send_request($path, $data)
   {
 		$headers = array(
 		  'Content-Type' => 'application/json',
+      'User-Agent' => 'Importify Wp Plugin',
 		  'x-plugin-version' => IMPORTIFY_VERSION,
 		  'x-site-url' => get_site_url(),
 		  'x-wp-version' => get_bloginfo('version'),
@@ -310,8 +311,7 @@ function importify_send_request($path, $data)
       'body' => json_encode($data),
       'method' => 'POST',
       'data_format' => 'body',
-      'sslverify' => false,
-      'user-agent' => "Importify Wp Plugin"
+      'sslverify' => false
     );
    
     $response = wp_remote_post($url, $data);
