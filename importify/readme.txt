@@ -1,11 +1,11 @@
 === Importify – AI Dropshipping for WooCommerce ===
 Contributors: Importify
 Donate link:  https://importify.com
-Tags: Dropshipping, Dropship, Aliexpress, Amazon, Etsy
+Tags: Dropshipping, Dropship, Aliexpress, Etsy
 Requires at least: 3.1
 Requires PHP: 5.4
 Tested up to: 6.8
-Stable tag: 1.0.13
+Stable tag: 1.0.14
 Plugin URI: https://importify.com
 License: proprietary
 
@@ -16,7 +16,7 @@ Importify is a dropshipping app that allows you to find products from a variety 
 
 Importify is the all-in-one dropshipping plugin designed for WooCommerce stores, helping
 you easily import and sell products from over 25 top global marketplaces, including
-AliExpress, Amazon, Alibaba, Etsy, Walmart, Taobao, 1688, Temu, Shein, Banggood,
+AliExpress, Alibaba, Etsy, Walmart, Taobao, 1688, Temu, Shein, Banggood,
 CJDropshipping, and many more.
 
 <strong>Why Importify?</strong>
@@ -33,7 +33,6 @@ Importify simplifies every step of the dropshipping journey.
 Import products from a wide variety of global and regional suppliers, including but not limited to:
 
 * AliExpress
-* Amazon (Premium & Gold plans)
 * Alibaba
 * Etsy
 * Walmart
@@ -259,19 +258,6 @@ Check out the video below to understand how to import products from Alibaba into
 
 [youtube  https://www.youtube.com/watch?v=IjjDC5rhdlA]
 
-
-##►<strong>Amazon Dropshipping</strong>##
-##- <strong>Am I able to dropship from Amazon using Importify?</strong>##
-Yes, you can dropship from Amazon, as long as your business follows Amazon's dropshipping policy.  
-
-
-<a href="https://sell.amazon.com/learn/what-is-dropshipping" target="_blank">What is dropshipping and how does it work? (by amazon)</a>
-<a href="https://sellercentral.amazon.com/help/hub/reference/external/201808410" target="_blank">*Amazon Dropshipping Policy</a>
-
-Check out the video below to understand how to import products from Amazon into Woocommerce.
-
-[youtube  https://www.youtube.com/watch?v=73IT92gOeRw]
-
 ##►<strong> Etsy Dropshipping</strong>##
 ##- <strong>Am I able to dropship from Etsy using Importify?</strong>##
 You can import products from Etsy to Woocommerce, the fulfillment needs to be handled by the merchant. 
@@ -334,7 +320,7 @@ Importify plugin installation is as easy as it gets, it works with both WordPres
 == Frequently Asked Questions ==
 
 = What sites can I import products from? =
-Using Importify you can import products from Aliexpress, Amazon, DhGate, Etsy, Alibaba, ChinaBrands, Banggood, CJdropshipping, TaoBao, 1688, Tmall, Gogomall, Walmart, DealExtreme, Wonify, Gearbest, Geekbuying,  JD, Kohls, Miniinthebox, RoseGal, Sears, Wish, Costco, Snapdeal, Overstock, Fasttech, Tmart, Tomshop, Flipkart, Rubyimports, Bonanza, LtdCommodities, Shein, Allstarthealth, Lazada
+Using Importify you can import products from Aliexpress, DhGate, Etsy, Alibaba, ChinaBrands, Banggood, CJdropshipping, TaoBao, 1688, Tmall, Gogomall, Walmart, DealExtreme, Wonify, Gearbest, Geekbuying,  JD, Kohls, Miniinthebox, RoseGal, Sears, Wish, Costco, Snapdeal, Overstock, Fasttech, Tmart, Tomshop, Flipkart, Rubyimports, Bonanza, LtdCommodities, Shein, Allstarthealth, Lazada
 
 = Will I need a web developer to handle code embedding? =
 No need, after installing the plugin and the chrome extension, you're good to go!
