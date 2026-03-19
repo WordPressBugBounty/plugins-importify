@@ -3,9 +3,9 @@ Contributors: Importify
 Donate link:  https://importify.com
 Tags: Dropshipping, Dropship, Aliexpress, Etsy
 Requires at least: 3.1
-Requires PHP: 5.4
+Requires PHP: 7.2
 Tested up to: 6.8
-Stable tag: 1.0.14
+Stable tag: 1.0.16
 Plugin URI: https://importify.com
 License: proprietary
 
@@ -67,8 +67,6 @@ importing.
 
 * Full control over product details ensures your listings are unique and brand-aligned.
 
-* Import from any public Shopify store using Edge extensions for cross-platform product
-migration.
 
 
 🤖  <strong>AI Product Optimizer (Premium & Gold Plans)</strong> 
@@ -141,13 +139,45 @@ Change suppliers or connect existing products without disruption:
 management.
 * Useful for supplier testing, pricing adjustments, and fulfillment updates.
 
-🚚  <strong>Automatic Order Fulfillment (Gold Plan - AliExpress Only)</strong> 
+🚚  <strong>Automatic Order Fulfillment (Gold Plan - AliExpress Only)</strong>
 
 Save time fulfilling orders from AliExpress:
 
 * Automatically pre-fill customer shipping details and select correct variants on the
 AliExpress checkout page.
 * Quickly create draft orders with accurate info — no copy-pasting or manual entry needed.
+
+
+🔍  <strong>Find Products — Browse & Import from Dashboard (NEW)</strong>
+
+Discover trending products without leaving the Importify dashboard:
+
+* Browse top-selling products by category — electronics, fashion, home & garden, and more.
+* Filter by best selling, newest arrivals, or search for specific products.
+* Full product editor with AI content generation, pricing rules, and variant management.
+* Import directly to your WooCommerce store in one click — no Chrome extension needed.
+* Fresh product selection every day from a pool of 14,000+ curated products.
+
+
+📦  <strong>CSV Migration — Switch from Other Dropshipping Apps (NEW)</strong>
+
+Easily migrate your existing store to Importify:
+
+* Migrate from AutoDS, ALD, Syncee, Eprolo, Spocket, and other dropshipping apps.
+* Import your existing product CSV to connect products with Importify.
+* Keep your products, SEO rankings, and customer reviews intact during migration.
+* Override feature lets you reconnect existing products to new suppliers without deleting anything.
+
+
+🛡  <strong>System Diagnostics Dashboard (NEW)</strong>
+
+Identify and fix setup issues instantly on plugin activation:
+
+* 7 automated health checks: SSL, WooCommerce, permalinks, PHP version, firewall, Cloudflare, and API connection.
+* Step-by-step fix guides with expandable panels for each issue.
+* Detection for 13+ security plugins that may block Importify's API (Wordfence, Sucuri, Jetpack, MalCare, and more).
+* One-click "Re-run System Checks" after making fixes.
+
 
    ##►What You Can Dropship with Importify##
 
@@ -176,7 +206,7 @@ Importify covers all popular product categories, making it easy to build niche o
 
 * Over 7 years of dropshipping experience.
 * Seamless integration with WooCommerce and support for 25+ top marketplaces.
-* Recognized by Cloudways for one of the best dropshipping tools for 2024.
+* Recognized by Cloudways as one of the best dropshipping tools for 2025.
 * Focus on building product pages with clear titles and descriptions.
 * 24/7 customer support to assist you at every step.
 
@@ -191,7 +221,7 @@ translation features.
 
 ##Start Building a Brand, Not Just a Store##
 
-In 2025, your success depends on how well you present your products — not just where you
+In 2025-2026, your success depends on how well you present your products — not just where you
 source them from. Importify helps you:
 Turn raw supplier listings into polished, benefit-driven, and brand-aligned product pages.
 Reduce customer support issues with clear FAQs and trust-building policies.
@@ -343,16 +373,34 @@ You can contact our support by using<a href="https://www.importify.com/?fluent-f
 5. Join Importify as a supplier
 
 == Changelog ==
-= 1.0.0 =
-* Initial release.
 
-= 1.0.1 =
-* Update Error message handleing.
-* Update Account check action.
+= 1.0.16 =
+* NEW: Find Products — browse and import trending products directly from the dashboard.
+* NEW: AI Product Wizard — generate SEO-optimized titles, descriptions, tags, meta descriptions, and product type with one click.
+* NEW: CSV Migration — import products from AutoDS, ALD, Syncee, Eprolo, Spocket.
+* NEW: System diagnostics dashboard with 7 automated health checks on activation.
+* NEW: Expanded firewall detection for 13+ security plugins (Wordfence, Sucuri, Jetpack, MalCare, etc.).
+* NEW: Step-by-step fix guides with expandable panels for common setup issues.
+* NEW: Video embed support in product descriptions.
+* NEW: One-click translation to 20+ languages for product content.
+* FIX: Duplicate class declaration on some WordPress configurations.
+* FIX: LiteSpeed Cache compatibility.
+* FIX: Request timeout handling improved (30s timeout for all API calls).
+* FIX: Better error logging for diagnostics.
+* FIX: Plugin activation error messages now show specific failure reasons.
 
-= 1.0.5=
+= 1.0.14 =
+* AI Product Optimizer with GPT openAI API support.
+* Smart pricing rules with currency conversion.
+* Variant management and splitting.
+* Auto assign collections on import.
+
+= 1.0.5 =
 * Bug fixes.
 
+= 1.0.1 =
+* Update error message handling.
+* Update account check action.
 
-== Upgrade Notice ==
-.
+= 1.0.0 =
+* Initial release.
