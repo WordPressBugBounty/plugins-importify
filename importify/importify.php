@@ -7,7 +7,7 @@
 /**
  * Plugin Name: Importify
  * Description: Easily import best-selling products, and automate your entire dropshipping process, all with a single click.
- * Version: 1.0.16
+ * Version: 1.0.18
  * Author: Importify
  * Author URI: https://www.importify.com/
  * License: GPLv3 or later
@@ -21,7 +21,7 @@ if (!defined('ABSPATH')) {
 }
 
 define("IMPORTIFY_API_URL", "https://app.importify.net/dashboard");
-define('IMPORTIFY_VERSION', '1.0.16');
+define('IMPORTIFY_VERSION', '1.0.18');
 define('IMPORTIFY_PATH', dirname(__FILE__));
 define('IMPORTIFY_FOLDER', basename(IMPORTIFY_PATH));
 define('IMPORTIFY_URL', plugins_url() . '/' . IMPORTIFY_FOLDER);
@@ -158,12 +158,12 @@ function importify_uninstall_hook()
 
 function importify_add_admin_css_js()
 {
-    wp_register_style('importify_style', IMPORTIFY_URL . '/assets/css/style.css');
+    wp_register_style('importify_style', IMPORTIFY_URL . '/assets/css/style.css', array(), IMPORTIFY_VERSION);
     wp_enqueue_style('importify_style');
-    wp_register_script('importify-admin', IMPORTIFY_URL . '/assets/js/script.js', array('jquery'), '1.0.0');
-    wp_enqueue_script('importify-admin');
-    wp_register_script('importify-admin-feather', IMPORTIFY_URL . '/assets/js/feather.min.js');
-    wp_enqueue_script('importify-admin-feather');
+    // No plugin-owned JS is shipped — the admin view inlines its <script> tags directly
+    // (icon-font reveal via Font Loading API + the "How to fix" toggle).
+    // Icon font itself is Material Symbols Outlined from Google Fonts, loaded in the admin view
+    // with display=block + a fonts-ready class so ligature text never flashes before icons.
 }
 
 function importify_admin_menu()
@@ -337,7 +337,7 @@ function importify_send_request($path, $data)
             'body' => json_encode($data),
             'method' => 'POST',
             'data_format' => 'body',
-            'sslverify' => false,
+            'sslverify' => true,
             'timeout' => 15,
         );
 

@@ -2,15 +2,16 @@
 Contributors: Importify
 Donate link:  https://importify.com
 Tags: Dropshipping, Dropship, Aliexpress, Etsy
-Requires at least: 3.1
+Requires at least: 6.0
 Requires PHP: 7.2
 Tested up to: 6.8
-Stable tag: 1.0.16
+Stable tag: 1.0.18
 Plugin URI: https://importify.com
-License: proprietary
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 
-Importify is a dropshipping app that allows you to find products from a variety of wholesalers, add them to your WooCommerce store, and sell them online, no coding skills needed.
+Import winning products from 25+ global marketplaces (AliExpress, Etsy, Walmart, Temu…) into your WooCommerce store with one click.
 
 == Description ==
 
@@ -373,6 +374,22 @@ You can contact our support by using<a href="https://www.importify.com/?fluent-f
 5. Join Importify as a supplier
 
 == Changelog ==
+
+= 1.0.18 =
+* IMPROVEMENT: Slim plugin download — the zipped plugin now weighs ~70 KB instead of 6.6 MB (a ~95× reduction). We stopped bundling the WordPress.org listing assets (banners, icons, screenshots) inside the plugin zip; those images still appear on the plugin page because they live at the plugin-directory level, but users no longer redundantly download them.
+* CLEANUP: Removed the unused legacy `assets/js/script.js` file and its WordPress enqueue hook — the current admin view inlines its own small scripts directly. No user-visible change.
+
+= 1.0.17 =
+* NEW: Redesigned setup page with a clean, light-themed layout (warm off-white surface, brick-red brand accents, Manrope + Inter typography).
+* NEW: Plugin-activated "All set" screen pairs each health check with a filled circular icon (verified_user / shopping_cart / link / code / security / cloud_done / api), a descriptive caption, and a coloured status pill.
+* NEW: "Issues found" state re-themed to match — amber for warnings, red for failures, each with an expandable step-by-step fix panel.
+* IMPROVEMENT: Icon rendering now uses the Font Loading API — ligature text stays hidden until the Material Symbols font is fully loaded, so users no longer see raw text like "check_circle" flashing before the glyph appears.
+* IMPROVEMENT: Dropped the inline Tailwind CDN script, external Tailwind config, and ~300 KB of utility-class CSS. All styling moved to a tokenised vanilla stylesheet (assets/css/style.css) and cached via IMPORTIFY_VERSION.
+* SECURITY: API requests to app.importify.net now verify TLS certificates (sslverify => true).
+* SECURITY: All external links in the admin setup page now include rel="noopener noreferrer" to prevent tabnabbing.
+* FIX: Primary CTA "Proceed to Importify Dashboard" button text is now rendered in white (was previously invisible on some WordPress admin themes due to an inherited anchor colour).
+* FIX: Hero copy now includes an inline link on "start importing products" that mirrors the primary CTA destination.
+* COMPAT: "Requires at least" bumped to WordPress 6.0 — the plugin uses modern WP APIs that are not reliably present in pre-6.0 installs.
 
 = 1.0.16 =
 * NEW: Find Products — browse and import trending products directly from the dashboard.
