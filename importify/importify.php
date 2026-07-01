@@ -7,10 +7,10 @@
 /**
  * Plugin Name: Importify
  * Description: Easily import best-selling products, and automate your entire dropshipping process, all with a single click.
- * Version: 1.0.18
+ * Version: 1.0.19
  * Author: Importify
  * Author URI: https://www.importify.com/
- * License: GPLv3 or later
+ * License: GPLv2 or later
  * Text Domain: importify-plugin
  * Requires PHP: 7.2
  * WC requires at least: 5.0
@@ -21,7 +21,7 @@ if (!defined('ABSPATH')) {
 }
 
 define("IMPORTIFY_API_URL", "https://app.importify.net/dashboard");
-define('IMPORTIFY_VERSION', '1.0.18');
+define('IMPORTIFY_VERSION', '1.0.19');
 define('IMPORTIFY_PATH', dirname(__FILE__));
 define('IMPORTIFY_FOLDER', basename(IMPORTIFY_PATH));
 define('IMPORTIFY_URL', plugins_url() . '/' . IMPORTIFY_FOLDER);

@@ -1,6 +1,6 @@
 /* ============================================================================
    Importify WP Plugin — admin page styles (light design, v1.0.17)
-   Warm off-white background, brick-red brand (#b8433f), success-green statuses.
+   Warm off-white background, coral brand (#e74c3c), success-green statuses.
    Uses Manrope (display) + Inter (body) via Google Fonts, Material Symbols for
    icons. FOIT is handled inline in the admin view via Font Loading API.
    ============================================================================ */
@@ -19,8 +19,8 @@
     --ink-muted: #6b6361;
     --ink-subtle: #9a908d;
 
-    --brand: #b8433f;
-    --brand-deep: #8e2f2c;
+    --brand: #e74c3c;
+    --brand-deep: #c0392b;
     --brand-soft: #fde8e6;
     --brand-softer: #fef3f1;
 
@@ -42,8 +42,15 @@
     --danger-softer: #fef2f2;
     --danger-border: #fca5a5;
 
+    /* Info (blue): informational, non-blocking detections (Security Firewall / Cloudflare present). */
+    --info: #2563eb;
+    --info-ink: #1e40af;
+    --info-soft: #dbeafe;
+    --info-softer: #eff6ff;
+    --info-border: #93c5fd;
+
     --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04), 0 10px 40px -10px rgba(0, 0, 0, 0.08);
-    --shadow-cta: 0 4px 14px rgba(184, 67, 63, 0.25), 0 1px 3px rgba(184, 67, 63, 0.15);
+    --shadow-cta: 0 4px 14px rgba(231, 76, 60, 0.25), 0 1px 3px rgba(231, 76, 60, 0.15);
 }
 
 /* ---------- Page wrapper ---------- */
@@ -146,7 +153,7 @@
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 3px;
-    background: linear-gradient(90deg, rgba(184, 67, 63, 0.4) 0%, var(--brand) 50%, rgba(184, 67, 63, 0.4) 100%);
+    background: linear-gradient(90deg, rgba(231, 76, 60, 0.4) 0%, var(--brand) 50%, rgba(231, 76, 60, 0.4) 100%);
 }
 .importify-card__stripe--warning {
     background: linear-gradient(90deg, rgba(217, 119, 6, 0.4) 0%, var(--warning) 50%, rgba(217, 119, 6, 0.4) 100%);
@@ -199,6 +206,8 @@
 .importify-check-row--fail:hover .importify-check-row__main { background: var(--danger-soft); }
 .importify-check-row--warn .importify-check-row__main { background: var(--warning-softer); }
 .importify-check-row--warn:hover .importify-check-row__main { background: var(--warning-soft); }
+.importify-check-row--info .importify-check-row__main { background: var(--info-softer); }
+.importify-check-row--info:hover .importify-check-row__main { background: var(--info-soft); }
 
 .importify-check-left {
     display: flex;
@@ -230,6 +239,11 @@
     background: var(--warning-softer);
     border-color: var(--warning-border);
     color: var(--warning);
+}
+.importify-check-icon--info {
+    background: var(--info-softer);
+    border-color: var(--info-border);
+    color: var(--info);
 }
 .importify-check-icon .material-symbols-outlined { font-size: 24px; }
 
@@ -282,6 +296,11 @@
     background: var(--danger-soft);
     border-color: var(--danger-border);
     color: var(--danger-ink);
+}
+.importify-pill--info {
+    background: var(--info-soft);
+    border-color: var(--info-border);
+    color: var(--info-ink);
 }
 .importify-pill--neutral {
     background: var(--surface-alt);
