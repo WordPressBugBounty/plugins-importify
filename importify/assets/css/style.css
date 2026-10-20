@@ -1,529 +1,117 @@
-/* ============================================================================
-   Importify WP Plugin — admin page styles (light design, v1.0.17)
-   Warm off-white background, coral brand (#e74c3c), success-green statuses.
-   Uses Manrope (display) + Inter (body) via Google Fonts, Material Symbols for
-   icons. FOIT is handled inline in the admin view via Font Loading API.
-   ============================================================================ */
+/* Importify settings page (1.0.20, from the Claude Design "Importify WooCommerce Plugin Settings").
+   System fonts and inline SVG icons only: nothing loads from outside the site.
+   Every rule is scoped under #importify-setup-wrap so wp-admin styles (h1, a, button) cannot win. */
 
-/* ---------- Tokens ---------- */
 #importify-setup-wrap {
-    --background: #fafaf9;
-    --surface: #ffffff;
-    --surface-alt: #f7f5f4;
-    --surface-hover: #f4f2f0;
+    --imf-ink: #1D2327;
+    --imf-muted: #50575E;
+    --imf-line: #DCDCDE;
+    --imf-link: #A94B2B;
+    --imf-link-hover: #8A3B20;
+    --imf-grad: linear-gradient(135deg, #E68B68, #C75E3D);
+    --imf-grad-hover: linear-gradient(135deg, #E07550, #B4532F);
+    --imf-pass-tile: #EDFAEF; --imf-pass-fg: #00702A; --imf-pass-border: #B8E6BF;
+    --imf-fail-bg: #FCF0F1; --imf-fail-tile: #FACFD2; --imf-fail-tile-fg: #8A2424; --imf-fail-fg: #B32D2E; --imf-fail-border: #E65054;
+    --imf-info-bg: #F0F6FC; --imf-info-tile: #D7E8F7; --imf-info-fg: #135E96; --imf-info-border: #72AEE6;
 
-    --border-subtle: #ece8e7;
-    --border-muted: #e5e0df;
+    padding: 24px 20px 32px 0;
+    color: var(--imf-ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+#importify-setup-wrap *, #importify-setup-wrap *::before, #importify-setup-wrap *::after { box-sizing: border-box; }
+#importify-setup-wrap svg { display: block; flex: 0 0 auto; }
+#importify-setup-wrap a { color: var(--imf-link); }
+#importify-setup-wrap a:hover { color: var(--imf-link-hover); }
+#importify-setup-wrap :focus-visible { outline: 2px solid var(--imf-link); outline-offset: 2px; border-radius: 4px; box-shadow: none; }
 
-    --ink: #1a1818;
-    --ink-muted: #6b6361;
-    --ink-subtle: #9a908d;
+#importify-setup-wrap .imf-page { max-width: 920px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+#importify-setup-wrap .imf-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-    --brand: #e74c3c;
-    --brand-deep: #c0392b;
-    --brand-soft: #fde8e6;
-    --brand-softer: #fef3f1;
+/* Preview banner (support tool: ?preview=all etc.) */
+#importify-setup-wrap .imf-preview { display: flex; gap: 8px; align-items: center; padding: 10px 14px; border: 1px dashed var(--imf-info-border); border-radius: 8px; background: var(--imf-info-bg); color: var(--imf-info-fg); font-size: 13px; }
 
-    --success: #059669;
-    --success-ink: #065f46;
-    --success-soft: #d1fae5;
-    --success-softer: #ecfdf5;
-    --success-border: #a7f3d0;
+/* Header */
+#importify-setup-wrap .imf-header { display: flex; flex-direction: column; gap: 10px; padding: 4px 2px 0; }
+#importify-setup-wrap .imf-badge { align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; height: 26px; padding: 0 11px; border-radius: 13px; font-size: 12.5px; font-weight: 600; }
+#importify-setup-wrap .imf-badge--ok { background: var(--imf-grad); color: #FFFFFF; }
+#importify-setup-wrap .imf-badge--warn { background: var(--imf-fail-bg); border: 1px solid #F0B8BA; color: #8A2424; }
+#importify-setup-wrap h1.imf-title { margin: 0; padding: 0; font-size: 26px; line-height: 1.25; font-weight: 700; letter-spacing: -0.3px; color: var(--imf-ink); text-wrap: balance; }
+#importify-setup-wrap .imf-sub { margin: 0; font-size: 14px; line-height: 1.5; color: var(--imf-muted); text-wrap: pretty; }
 
-    --warning: #d97706;
-    --warning-ink: #92400e;
-    --warning-soft: #fef3c7;
-    --warning-softer: #fffbeb;
-    --warning-border: #fcd34d;
+/* Account strip */
+#importify-setup-wrap .imf-strip { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; padding: 12px 16px; background: #FFFFFF; border: 1px solid var(--imf-line); border-radius: 8px; font-size: 13px; }
+#importify-setup-wrap .imf-strip__item { display: flex; align-items: center; gap: 8px; min-width: 0; }
+#importify-setup-wrap .imf-strip__label { color: var(--imf-muted); }
+#importify-setup-wrap .imf-strip__store { font-weight: 600; color: var(--imf-ink); overflow-wrap: anywhere; }
+#importify-setup-wrap .imf-conn { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; }
+#importify-setup-wrap .imf-conn::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+#importify-setup-wrap .imf-conn--ok { color: var(--imf-pass-fg); }
+#importify-setup-wrap .imf-conn--ok::before { background: #00A32A; }
+#importify-setup-wrap .imf-conn--fail { color: var(--imf-fail-fg); }
+#importify-setup-wrap .imf-conn--fail::before { background: #D63638; }
+#importify-setup-wrap .imf-plan { height: 22px; padding: 0 9px; border-radius: 11px; border: 1px solid #E68B68; background: #FDF3EF; color: #8A3B20; font-size: 12px; font-weight: 700; display: inline-flex; align-items: center; }
+#importify-setup-wrap .imf-strip__spacer { flex: 1 1 0; min-width: 0; }
+#importify-setup-wrap .imf-links { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+#importify-setup-wrap .imf-links a { display: inline-flex; align-items: center; gap: 5px; font-weight: 600; text-decoration: none; }
+#importify-setup-wrap .imf-links a:hover { text-decoration: underline; }
 
-    --danger: #dc2626;
-    --danger-ink: #991b1b;
-    --danger-soft: #fee2e2;
-    --danger-softer: #fef2f2;
-    --danger-border: #fca5a5;
+/* Checks card */
+#importify-setup-wrap .imf-card { background: #FFFFFF; border: 1px solid var(--imf-line); border-radius: 8px; overflow: hidden; }
+#importify-setup-wrap .imf-card__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px; border-bottom: 1px solid var(--imf-line); }
+#importify-setup-wrap .imf-card__title { font-size: 14px; font-weight: 700; }
+#importify-setup-wrap .imf-card__summary { font-size: 12.5px; color: var(--imf-muted); }
 
-    /* Info (blue): informational, non-blocking detections (Security Firewall / Cloudflare present). */
-    --info: #2563eb;
-    --info-ink: #1e40af;
-    --info-soft: #dbeafe;
-    --info-softer: #eff6ff;
-    --info-border: #93c5fd;
+#importify-setup-wrap .imf-row { display: flow-root; border-top: 1px solid var(--imf-line); }
+#importify-setup-wrap .imf-card__head + .imf-row { border-top: 0; }
+#importify-setup-wrap .imf-row--fail { background: var(--imf-fail-bg); }
+#importify-setup-wrap .imf-row--info { background: var(--imf-info-bg); }
+#importify-setup-wrap .imf-row__main { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; padding: 14px 16px; }
+#importify-setup-wrap .imf-row__text { flex: 1 1 240px; min-width: 0; display: flex; align-items: flex-start; gap: 12px; }
+#importify-setup-wrap .imf-tile { width: 36px; height: 36px; border-radius: 8px; flex: 0 0 auto; display: flex; align-items: center; justify-content: center; background: var(--imf-pass-tile); color: var(--imf-pass-fg); }
+#importify-setup-wrap .imf-row--fail .imf-tile { background: var(--imf-fail-tile); color: var(--imf-fail-tile-fg); }
+#importify-setup-wrap .imf-row--info .imf-tile { background: var(--imf-info-tile); color: var(--imf-info-fg); }
+#importify-setup-wrap .imf-row__copy { display: flex; flex-direction: column; gap: 2px; min-width: 0; padding-top: 1px; }
+#importify-setup-wrap .imf-row__name { margin: 0; font-size: 14px; font-weight: 600; color: var(--imf-ink); }
+#importify-setup-wrap .imf-row__desc { margin: 0; font-size: 13px; line-height: 1.45; color: var(--imf-muted); text-wrap: pretty; overflow-wrap: anywhere; }
+#importify-setup-wrap .imf-row__actions { display: flex; align-items: center; gap: 14px; }
 
-    --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04), 0 10px 40px -10px rgba(0, 0, 0, 0.08);
-    --shadow-cta: 0 4px 14px rgba(231, 76, 60, 0.25), 0 1px 3px rgba(231, 76, 60, 0.15);
-}
+#importify-setup-wrap .imf-pill { display: inline-flex; align-items: center; gap: 5px; height: 24px; padding: 0 9px; border-radius: 12px; font-size: 12px; font-weight: 700; white-space: nowrap; background: var(--imf-pass-tile); color: var(--imf-pass-fg); border: 1px solid var(--imf-pass-border); }
+#importify-setup-wrap .imf-pill--fail { background: #FFFFFF; color: var(--imf-fail-fg); border-color: var(--imf-fail-border); }
+#importify-setup-wrap .imf-pill--info { background: #FFFFFF; color: var(--imf-info-fg); border-color: var(--imf-info-border); }
 
-/* ---------- Page wrapper ---------- */
-#importify-setup-wrap {
-    background: var(--background);
-    min-height: 100vh;
-    margin-left: -20px;
-    margin-top: -10px;
-    padding: 48px 24px 80px;
-    color: var(--ink);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-size: 15px;
-    line-height: 1.55;
-}
-#importify-setup-wrap *,
-#importify-setup-wrap *::before,
-#importify-setup-wrap *::after { box-sizing: border-box; }
+#importify-setup-wrap button.imf-fix-toggle { display: inline-flex; align-items: center; gap: 4px; height: 32px; min-height: 0; padding: 0 6px; border: 0; background: transparent; box-shadow: none; color: var(--imf-link); font-family: inherit; font-size: 13px; font-weight: 600; line-height: 1; cursor: pointer; white-space: nowrap; border-radius: 4px; }
+#importify-setup-wrap button.imf-fix-toggle:hover { color: var(--imf-link-hover); text-decoration: underline; }
+#importify-setup-wrap button.imf-fix-toggle svg { transition: transform .15s; }
+#importify-setup-wrap button.imf-fix-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
 
-#importify-setup-wrap a { color: var(--brand); text-decoration: none; }
-#importify-setup-wrap a:hover { text-decoration: underline; }
+#importify-setup-wrap .imf-fix { margin: 0 16px 16px 64px; padding: 14px 16px; background: #FFFFFF; border: 1px solid var(--imf-line); border-radius: 8px; display: flex; flex-direction: column; gap: 10px; }
+#importify-setup-wrap .imf-fix[hidden] { display: none; }
+#importify-setup-wrap .imf-steps { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; }
+#importify-setup-wrap .imf-steps li { display: flex; gap: 10px; align-items: flex-start; margin: 0; font-size: 13px; line-height: 1.5; color: var(--imf-ink); }
+#importify-setup-wrap .imf-steps__n { width: 20px; height: 20px; border-radius: 50%; flex: 0 0 auto; background: #F0F0F1; color: var(--imf-ink); font-size: 11.5px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+#importify-setup-wrap .imf-steps code { font-size: 12px; padding: 1px 5px; border-radius: 4px; background: #F0F0F1; }
+#importify-setup-wrap .imf-guide { align-self: flex-start; display: inline-flex; align-items: center; gap: 5px; font-size: 13px; font-weight: 600; }
 
-#importify-setup-wrap h1,
-#importify-setup-wrap h2,
-#importify-setup-wrap h3 {
-    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    color: var(--ink);
-    margin: 0;
-    letter-spacing: -0.02em;
-}
+/* Footer actions */
+#importify-setup-wrap .imf-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 10px; padding: 4px 0 8px; }
+#importify-setup-wrap .imf-btn { flex: 0 0 auto; height: 40px; padding: 0 20px; border-radius: 6px; font-family: inherit; font-size: 14px; font-weight: 600; line-height: 1; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; }
+#importify-setup-wrap .imf-btn--primary, #importify-setup-wrap .imf-btn--primary:hover, #importify-setup-wrap .imf-btn--primary:focus { border: 0; background: var(--imf-grad); color: #FFFFFF; }
+#importify-setup-wrap .imf-btn--primary:hover { background: var(--imf-grad-hover); }
+#importify-setup-wrap .imf-btn--secondary { padding: 0 18px; border: 1px solid #8C8F94; background: #FFFFFF; color: var(--imf-ink); }
+#importify-setup-wrap .imf-btn--secondary:hover { background: #F6F7F7; border-color: var(--imf-muted); color: var(--imf-ink); }
+#importify-setup-wrap .imf-btn[aria-busy="true"] { cursor: progress; pointer-events: none; }
+#importify-setup-wrap .imf-spinner { width: 14px; height: 14px; border-radius: 50%; border: 2px solid currentColor; border-right-color: transparent; animation: imf-spin .7s linear infinite; display: inline-block; }
+@keyframes imf-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { #importify-setup-wrap * { animation-duration: 1.6s !important; transition: none !important; } }
 
-#importify-setup-wrap p { margin: 0; color: var(--ink-muted); }
+#importify-setup-wrap .imf-version { margin: 0; text-align: center; font-size: 12px; color: var(--imf-muted); }
 
-.importify-container {
-    max-width: 56rem;
-    margin: 0 auto;
-    padding: 0 6px;
-}
-
-/* ---------- Material Symbols — FOIT fix ---------- */
-.material-symbols-outlined {
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    visibility: hidden;
-}
-.fonts-ready .material-symbols-outlined { visibility: visible; }
-.material-symbols-outlined--filled { font-variation-settings: 'FILL' 1; }
-
-/* ---------- Header section ---------- */
-.importify-header {
-    margin-bottom: 40px;
-}
-.importify-status-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 5px 14px;
-    border-radius: 999px;
-    border: 1px solid transparent;
-    margin-bottom: 18px;
-    font-family: 'Manrope', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-}
-.importify-status-badge--success {
-    background: var(--success-softer);
-    border-color: var(--success-border);
-    color: var(--success-ink);
-}
-.importify-status-badge--success .material-symbols-outlined { color: var(--success); font-size: 18px; }
-.importify-status-badge--warning {
-    background: var(--warning-softer);
-    border-color: var(--warning-border);
-    color: var(--warning-ink);
-}
-.importify-status-badge--warning .material-symbols-outlined { color: var(--warning); font-size: 18px; }
-
-.importify-header h1 {
-    font-size: clamp(30px, 4vw, 44px);
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 10px;
-    color: var(--ink);
-}
-.importify-header p {
-    font-size: 16px;
-    color: var(--ink-muted);
-}
-
-/* ---------- Main card ---------- */
-.importify-card {
-    position: relative;
-    background: var(--surface);
-    border: 1px solid var(--border-subtle);
-    border-radius: 2rem;
-    overflow: hidden;
-    box-shadow: var(--shadow-card);
-}
-.importify-card__stripe {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 3px;
-    background: linear-gradient(90deg, rgba(231, 76, 60, 0.4) 0%, var(--brand) 50%, rgba(231, 76, 60, 0.4) 100%);
-}
-.importify-card__stripe--warning {
-    background: linear-gradient(90deg, rgba(217, 119, 6, 0.4) 0%, var(--warning) 50%, rgba(217, 119, 6, 0.4) 100%);
-}
-.importify-card__body {
-    padding: 32px;
-}
-@media (min-width: 768px) {
-    .importify-card__body { padding: 48px; }
-}
-
-/* ---------- Issue banner (ISSUES state) ---------- */
-.importify-issue-banner {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 24px;
-}
-.importify-issue-banner .material-symbols-outlined {
-    font-size: 32px;
-    color: var(--warning);
-}
-.importify-issue-banner h2 {
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--ink);
-}
-
-/* ---------- Check rows ---------- */
-.importify-check-list { display: flex; flex-direction: column; gap: 4px; }
-
-.importify-check-row {
-    display: flex;
-    flex-direction: column;
-    border-radius: 1rem;
-    transition: background 0.25s ease;
-}
-.importify-check-row__main {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    gap: 16px;
-    border-radius: 1rem;
-    transition: background 0.25s ease;
-}
-.importify-check-row:hover .importify-check-row__main { background: var(--surface-alt); }
-
-.importify-check-row--fail .importify-check-row__main { background: var(--danger-softer); }
-.importify-check-row--fail:hover .importify-check-row__main { background: var(--danger-soft); }
-.importify-check-row--warn .importify-check-row__main { background: var(--warning-softer); }
-.importify-check-row--warn:hover .importify-check-row__main { background: var(--warning-soft); }
-.importify-check-row--info .importify-check-row__main { background: var(--info-softer); }
-.importify-check-row--info:hover .importify-check-row__main { background: var(--info-soft); }
-
-.importify-check-left {
-    display: flex;
-    align-items: center;
-    gap: 22px;
-    min-width: 0;
-}
-
-.importify-check-icon {
-    flex-shrink: 0;
-    width: 48px; height: 48px;
-    border-radius: 50%;
-    display: inline-flex; align-items: center; justify-content: center;
-    border: 1px solid transparent;
-    transition: transform 0.25s ease;
-}
-.importify-check-row:hover .importify-check-icon { transform: scale(1.08); }
-.importify-check-icon--pass {
-    background: var(--success-softer);
-    border-color: var(--success-border);
-    color: var(--success);
-}
-.importify-check-icon--fail {
-    background: var(--danger-softer);
-    border-color: var(--danger-border);
-    color: var(--danger);
-}
-.importify-check-icon--warn {
-    background: var(--warning-softer);
-    border-color: var(--warning-border);
-    color: var(--warning);
-}
-.importify-check-icon--info {
-    background: var(--info-softer);
-    border-color: var(--info-border);
-    color: var(--info);
-}
-.importify-check-icon .material-symbols-outlined { font-size: 24px; }
-
-.importify-check-text { min-width: 0; }
-.importify-check-text__name {
-    font-family: 'Manrope', sans-serif;
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--ink);
-    line-height: 1.3;
-    margin-bottom: 3px;
-}
-.importify-check-text__desc {
-    font-size: 13px;
-    color: var(--ink-muted);
-}
-
-.importify-check-right {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-shrink: 0;
-}
-
-/* ---------- Pills ---------- */
-.importify-pill {
-    display: inline-flex;
-    align-items: center;
-    padding: 6px 16px;
-    border-radius: 999px;
-    border: 1px solid transparent;
-    font-family: 'Manrope', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    white-space: nowrap;
-}
-.importify-pill--success {
-    background: var(--success-soft);
-    border-color: var(--success-border);
-    color: var(--success-ink);
-}
-.importify-pill--warn {
-    background: var(--warning-soft);
-    border-color: var(--warning-border);
-    color: var(--warning-ink);
-}
-.importify-pill--fail {
-    background: var(--danger-soft);
-    border-color: var(--danger-border);
-    color: var(--danger-ink);
-}
-.importify-pill--info {
-    background: var(--info-soft);
-    border-color: var(--info-border);
-    color: var(--info-ink);
-}
-.importify-pill--neutral {
-    background: var(--surface-alt);
-    border-color: var(--border-muted);
-    color: var(--ink);
-}
-.importify-pill--muted {
-    background: var(--surface-alt);
-    border-color: var(--border-muted);
-    color: var(--ink-subtle);
-}
-
-/* ---------- Fix-panel (ISSUES state) ---------- */
-.importify-fix-panel {
-    display: none;
-    margin: 0 8px 8px;
-    padding: 22px 24px;
-    background: var(--warning-softer);
-    border: 1px solid var(--warning-border);
-    border-radius: 1rem;
-}
-.importify-fix-panel--open { display: block; }
-.importify-fix-panel h3 {
-    font-family: 'Manrope', sans-serif;
-    font-size: 11px;
-    color: var(--warning-ink);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 16px;
-    font-weight: 700;
-}
-.importify-fix-steps { display: flex; flex-direction: column; gap: 14px; }
-.importify-fix-step {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-}
-.importify-fix-step__num {
-    flex-shrink: 0;
-    width: 24px; height: 24px;
-    border-radius: 50%;
-    background: var(--warning-soft);
-    color: var(--warning-ink);
-    font-family: 'Manrope', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    display: inline-flex; align-items: center; justify-content: center;
-    margin-top: 1px;
-}
-.importify-fix-step p {
-    font-size: 13px;
-    color: var(--ink);
-    line-height: 1.6;
-}
-.importify-fix-step code {
-    background: var(--brand-softer);
-    color: var(--brand-deep);
-    padding: 2px 8px;
-    border-radius: 6px;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    font-size: 12px;
-    border: 1px solid var(--brand-soft);
-}
-.importify-fix-step em {
-    color: var(--ink-muted);
-    font-style: italic;
-}
-.importify-fix-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    margin-top: 10px;
-    color: var(--brand);
-    font-family: 'Manrope', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    transition: gap 0.2s ease;
-    text-decoration: none;
-}
-.importify-fix-link:hover { gap: 10px; text-decoration: none; color: var(--brand-deep); }
-.importify-fix-link .material-symbols-outlined { font-size: 16px; }
-
-/* ---------- Card footer ---------- */
-.importify-card__footer {
-    margin-top: 32px;
-    padding-top: 32px;
-    border-top: 1px solid var(--border-subtle);
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 16px;
-}
-@media (min-width: 640px) {
-    .importify-card__footer {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-    }
-}
-.importify-card__footer-note {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--ink-muted);
-    font-size: 14px;
-}
-.importify-card__footer-note .material-symbols-outlined { color: var(--success); font-size: 20px; }
-
-/* ---------- Buttons ----------
-   All rules scoped under #importify-setup-wrap so their specificity (ID + class)
-   beats the generic `#importify-setup-wrap a` rule above — otherwise anchor
-   buttons inherit var(--brand) text colour and disappear on the brand-red bg. */
-#importify-setup-wrap .importify-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 14px 28px;
-    border-radius: 0.75rem;
-    border: 1px solid transparent;
-    font-family: 'Manrope', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 1;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    text-decoration: none;
-    white-space: nowrap;
-}
-#importify-setup-wrap .importify-btn:hover { text-decoration: none; }
-#importify-setup-wrap .importify-btn:active { transform: scale(0.96); }
-
-#importify-setup-wrap .importify-btn--primary,
-#importify-setup-wrap a.importify-btn--primary,
-#importify-setup-wrap a.importify-btn--primary:visited {
-    background: var(--brand);
-    color: #ffffff;
-    box-shadow: var(--shadow-cta);
-}
-#importify-setup-wrap .importify-btn--primary:hover,
-#importify-setup-wrap a.importify-btn--primary:hover {
-    background: var(--brand-deep);
-    color: #ffffff;
-    transform: scale(1.02);
-}
-#importify-setup-wrap .importify-btn--primary .material-symbols-outlined { font-size: 18px; }
-
-#importify-setup-wrap .importify-btn--secondary,
-#importify-setup-wrap a.importify-btn--secondary,
-#importify-setup-wrap a.importify-btn--secondary:visited {
-    background: var(--surface);
-    color: var(--ink);
-    border-color: var(--border-muted);
-}
-#importify-setup-wrap .importify-btn--secondary:hover,
-#importify-setup-wrap a.importify-btn--secondary:hover {
-    background: var(--surface-alt);
-    color: var(--ink);
-    border-color: var(--ink-subtle);
-}
-
-#importify-setup-wrap .importify-btn--link {
-    background: transparent;
-    color: var(--brand);
-    padding: 0;
-    font-size: 13px;
-    font-weight: 700;
-    border: 0;
-    cursor: pointer;
-    font-family: 'Manrope', sans-serif;
-}
-#importify-setup-wrap .importify-btn--link:hover { color: var(--brand-deep); text-decoration: underline; }
-
-@media (max-width: 639px) {
-    .importify-card__footer .importify-btn { width: 100%; }
-}
-
-/* ---------- Footer actions row (ISSUES state) ---------- */
-.importify-footer-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 24px;
-    align-items: stretch;
-    justify-content: center;
-}
-@media (min-width: 640px) {
-    .importify-footer-actions {
-        flex-direction: row;
-        align-items: center;
-    }
-    .importify-footer-actions .importify-btn { min-width: 220px; }
-}
-
-.importify-version {
-    text-align: center;
-    margin-top: 36px;
-    font-size: 12px;
-    color: var(--ink-subtle);
-}
-
-/* ---------- Preview-mode banner (admin-only debug helper) ---------- */
-.importify-preview-banner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px 18px;
-    margin-bottom: 24px;
-    background: var(--brand-softer);
-    border: 1px dashed var(--brand);
-    border-radius: 0.5rem;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    font-size: 12px;
-    color: var(--brand-deep);
-}
-.importify-preview-banner a { color: var(--brand-deep); text-decoration: underline; font-weight: 700; }
-.importify-preview-banner a:hover { color: var(--brand); }
-.importify-preview-banner .material-symbols-outlined { font-size: 16px; color: var(--brand); }
-
-/* ---------- Utility: responsive gap for brand badge + image ---------- */
-.importify-brand-badge img {
-    display: block;
-    max-width: 100%;
-    height: auto;
+/* Narrow screens (design frame 1c, 390 px) */
+@media (max-width: 600px) {
+    #importify-setup-wrap { padding: 16px 10px 20px 0; }
+    #importify-setup-wrap h1.imf-title { font-size: 21px; }
+    #importify-setup-wrap .imf-row__actions { margin-left: 48px; }
+    #importify-setup-wrap .imf-fix { margin: 0 16px 16px 16px; }
+    #importify-setup-wrap .imf-btn { flex: 1 1 100%; }
 }

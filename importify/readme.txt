@@ -1,11 +1,10 @@
 === Importify – AI Dropshipping for WooCommerce ===
 Contributors: importify
-Donate link: https://importify.com
 Tags: dropshipping, woocommerce, aliexpress, import-products, alibaba
 Requires at least: 6.0
 Requires PHP: 7.2
-Tested up to: 6.8
-Stable tag: 1.0.19
+Tested up to: 7.0
+Stable tag: 1.0.20
 Plugin URI: https://importify.com
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -21,7 +20,7 @@ Importify is more than a product importer. It runs the whole workflow on WooComm
 
 Most dropshipping plugins only pull from AliExpress. Importify imports from AliExpress, Alibaba, Etsy, Walmart, Taobao, 1688, Temu, Shein, Banggood, CJDropshipping, and 15+ more, then gives you the tools to turn raw supplier listings into product pages that convert.
 
-[youtube https://www.youtube.com/watch?v=DanHmNwqgOI&t]
+[youtube https://www.youtube.com/watch?v=U0AhXfVDQlU]
 
 ##Key Features and Benefits##
 
@@ -46,7 +45,6 @@ Source products from global and regional suppliers, including but not limited to
 * Nordstrom
 * Kohls
 * Costco
-* Bed Bath & Beyond
 …and many more suppliers for all product niches.
 
 
@@ -78,6 +76,8 @@ Sell to customers in their own language:
 * Keeps the original formatting and structure intact.
 * Right-to-left output supported for Hebrew and Arabic.
 
+[youtube https://www.youtube.com/watch?v=s6E_i1Z8KF0]
+
 
 💱 <strong>Automated Currency Conversion with Live Exchange Rates (Premium & Gold Plans)</strong>
 
@@ -86,7 +86,7 @@ Importify detects the supplier's currency and converts costs into your store's o
 * Converts to the currency your WooCommerce store sells in, not USD only.
 * Supports major world currencies including USD, EUR, GBP, CAD, and AUD.
 * Live rates, updated daily, so your pricing and margins stay accurate.
-* Optional toggle to turn conversion on or off.
+* Choose Automatic or Ask first in the extension settings.
 * Works with your smart pricing rules.
 
 
@@ -96,8 +96,9 @@ Set your margins once and let every import follow them:
 
 * Apply fixed or percentage markups on supplier prices automatically.
 * Round prices to endings like .99 or .95.
-* Set different rules for different cost ranges.
 * Preview the price before you import, so there are no surprises.
+
+[youtube https://www.youtube.com/watch?v=_Qq4fdvNaKU]
 
 
 🧩 <strong>Variant Management and Splitting</strong>
@@ -108,12 +109,14 @@ Control how variants land in your catalog:
 * Split a multi-variant listing into separate products for better SEO, targeted ads, and inventory control.
 * Edit variant names, SKUs, and pricing one by one.
 
+[youtube https://www.youtube.com/watch?v=9UBkRczEFx4]
+
 
 🗂 <strong>Auto Assign Categories</strong>
 
 Keep the store organized without manual sorting:
 
-* Assign imported products to the right WooCommerce categories automatically, by title, tag, and type rules.
+* Importify reads the AliExpress category and selects the matching WooCommerce category.
 * Keep a tidy storefront that is easy for customers to browse.
 
 
@@ -125,6 +128,8 @@ Change suppliers or connect products you already have, without breaking anything
 * Connect products already in your WooCommerce store to Importify.
 * Useful for supplier testing, price changes, and fulfillment updates.
 
+[youtube https://www.youtube.com/watch?v=OTArHQO10CQ]
+
 
 🚚 <strong>Order Fulfillment (Gold Plan, AliExpress)</strong>
 
@@ -134,22 +139,25 @@ Fulfill AliExpress orders without retyping addresses:
 * Available for AliExpress on the Gold plan.
 * Honest note: full auto-ordering is AliExpress-only. For other suppliers, Importify prepares the order details so you place the order with the supplier yourself.
 
+[youtube https://www.youtube.com/watch?v=cDIvvDgYJYE]
+
 
 🔍 <strong>Product Finder: Import from the Dashboard, No Chrome Extension Needed (NEW)</strong>
 
 Find trending products without leaving the Importify dashboard:
 
-* Browse top-selling products by category: electronics, fashion, home & garden, and more.
-* Filter by best selling or newest, or search for a specific product.
+* Describe a product, or paste an AliExpress link, and import it from the dashboard.
 * Import straight to your WooCommerce store in one click, no Chrome extension required.
 * Works on mobile too, so you can source from any device.
+
+[youtube https://www.youtube.com/watch?v=Y5lZk-lyAoU]
 
 
 📦 <strong>CSV Migration: Switch from Other Dropshipping Apps (NEW)</strong>
 
 Bring your existing store to Importify:
 
-* Migrate from AutoDS, DSers, Zendrop, AliDropship, Syncee, Eprolo, and Spocket today, with more dropshipping apps being added.
+* Import CSV exports from AutoDS, DSers, CJDropshipping and Zendrop, or a Shopify CSV export.
 * Import your product CSV to connect existing products with Importify.
 * Keep your products, SEO rankings, and customer reviews intact during the move.
 * The Override feature reconnects existing products to new suppliers without deleting anything.
@@ -182,7 +190,6 @@ Importify covers all popular product categories, so you can build a niche or a g
 * Hardware & Tools
 * Health & Beauty
 * Home & Garden
-* Mature Products
 * Pet Supplies
 * Sports Equipment
 * Toys & Games
@@ -195,8 +202,6 @@ Importify covers all popular product categories, so you can build a niche or a g
 * Imports from 25+ marketplaces, not AliExpress alone.
 * Product Finder imports straight from the dashboard, with no Chrome extension needed.
 * The System Diagnostics dashboard finds and fixes setup issues the moment you activate the plugin.
-* Featured by Cloudways among the best WooCommerce dropshipping plugins.
-* 24/7 customer support at every step.
 
 ##►Minimum Requirements##
 
@@ -218,7 +223,7 @@ You chose WooCommerce for control: your store, your data, your brand, not rented
 
 ##►HOW TO REGISTER AND INSTALL THE IMPORTIFY APP?##
 
-[youtube  https://www.youtube.com/watch?v=BYtbZvU7d-o]
+[youtube https://www.youtube.com/watch?v=lSkLeMfER5A]
 
 To set up Importify on your WordPress WooCommerce store, follow these steps:
 
@@ -247,7 +252,7 @@ Once the plugin is installed and active, move on to the next steps: choosing a p
 
 
 
-<Strong>2. Access the app's dashboard:</strong> Click the Importify icon in the side menu, then click "Go To Dashboard."
+<Strong>2. Access the app's dashboard:</strong> Click the Importify icon in the side menu, then click "Proceed to Importify Dashboard."
 
 <Strong>3. Choose an Importify Subscription Plan:</strong> From the Importify dashboard, pick the plan that fits your business and complete the subscription to unlock Importify's features.
 
@@ -264,7 +269,7 @@ Yes. You can import products from AliExpress to WooCommerce and fulfill orders, 
 
 Check out the video below to see how to import products from AliExpress.
 
-[youtube  https://www.youtube.com/watch?v=lA7WgRvPrLM]
+[youtube https://www.youtube.com/watch?v=40_hMGISrnQ]
 
 ##►<strong>Alibaba Dropshipping</strong>##
 ##- <strong>Am I able to dropship from Alibaba using Importify?</strong>##
@@ -272,7 +277,7 @@ Yes. You can import products from Alibaba to WooCommerce. Fulfillment is handled
 
 Check out the video below to see how to import products from Alibaba into WooCommerce.
 
-[youtube  https://www.youtube.com/watch?v=IjjDC5rhdlA]
+[youtube https://www.youtube.com/watch?v=Vm48-ssvpk0]
 
 ##►<strong> Etsy Dropshipping</strong>##
 ##- <strong>Am I able to dropship from Etsy using Importify?</strong>##
@@ -280,7 +285,7 @@ You can import products from Etsy to WooCommerce. Fulfillment is handled by the 
 
 Check out the video below to see how to import products from Etsy into WooCommerce.
 
-[youtube  https://www.youtube.com/watch?v=7fMqU1euOv0]
+[youtube https://www.youtube.com/watch?v=d6O9WbMD8h4]
 
 ##►<strong> Taobao Dropshipping</strong>##
 ##- <strong>Am I able to dropship from Taobao using Importify?</strong>##
@@ -288,7 +293,7 @@ You can import products from Taobao to WooCommerce. Fulfillment is handled by th
 
 Check out the video below to see how to import products from Taobao into WooCommerce.
 
-[youtube  https://www.youtube.com/watch?v=jwUy3KelsCU]
+[youtube https://www.youtube.com/watch?v=tQevyYyZKgc]
 
 ##►<strong> 1688 Dropshipping</strong>##
 ##- <strong>Am I able to dropship from 1688 using Importify?</strong>##
@@ -296,15 +301,19 @@ You can import products from 1688 to WooCommerce. Fulfillment is handled by the 
 
 Check out the video below to see how to import products from 1688 into WooCommerce.
 
-[youtube  https://www.youtube.com/watch?v=IiALf-im-jY]
+[youtube https://www.youtube.com/watch?v=SfX20rkmIVY]
 
 ##►<strong> Dhgate Dropshipping</strong>##
 ##- <strong>Am I able to dropship from Dhgate using Importify?</strong>##
 You can import products from Dhgate to WooCommerce. Fulfillment is handled by the merchant.
 
-Check out the video below to see how to import products from Dhgate into WooCommerce.
+##►<strong> Temu Dropshipping</strong>##
+##- <strong>Am I able to dropship from Temu using Importify?</strong>##
+You can import products from Temu to WooCommerce. Fulfillment is handled by the merchant.
 
-[youtube  https://www.youtube.com/watch?v=ydFcxfgrexs]
+##►<strong> Shein Dropshipping</strong>##
+##- <strong>Am I able to dropship from Shein using Importify?</strong>##
+You can import products from Shein to WooCommerce. Fulfillment is handled by the merchant.
 
 
 
@@ -320,6 +329,10 @@ Every plan includes a 1-day free trial. Cancel before the trial ends and you wil
 ##<strong>►CAN I CANCEL MY ACCOUNT AT ANY TIME?</strong>##
 Yes. If Importify is not the right fit, cancel your recurring payment at any time.
 
+== External services ==
+
+This plugin connects to Importify (app.importify.net) to link your WooCommerce store to your Importify account. On activation it sends your site address and admin email, and it creates WooCommerce REST API keys (read/write) so Importify can add the products you import. The settings page sends your site address and your Importify key to check the connection. Importify Terms: https://www.importify.com/terms-of-use/ Privacy: https://www.importify.com/privacy-policy/
+
 == Installation ==
 Installing Importify is quick, and it works with WordPress and WooCommerce on your site.
 
@@ -328,7 +341,7 @@ Installing Importify is quick, and it works with WordPress and WooCommerce on yo
 1. Install the plugin through the WordPress plugins screen, or unzip the plugin archive to '/wp-content/plugins'.
 2. On the WordPress 'Plugins' page, activate the plugin.
 3. Click the "Importify" menu item in your admin sidebar.
-4. Click "Go To Dashboard."
+4. Click "Proceed to Importify Dashboard."
 5. From the Importify dashboard, choose your import method: install the Importify Chrome extension for supplier pages, or use Product Finder to import from the dashboard.
 6. Visit a supported supplier site, open a product page, and click the "Add" button (or import from Product Finder).
 
@@ -336,7 +349,7 @@ Installing Importify is quick, and it works with WordPress and WooCommerce on yo
 == Frequently Asked Questions ==
 
 = What sites can I import products from? =
-Using Importify you can import products from Aliexpress, DhGate, Etsy, Alibaba, ChinaBrands, Banggood, CJdropshipping, TaoBao, 1688, Tmall, Gogomall, Walmart, DealExtreme, Wonify, Gearbest, Geekbuying,  JD, Kohls, Miniinthebox, RoseGal, Sears, Wish, Costco, Snapdeal, Overstock, Fasttech, Tmart, Tomshop, Flipkart, Rubyimports, Bonanza, LtdCommodities, Shein, Allstarthealth, Lazada
+Using Importify you can import products from AliExpress, Alibaba, Etsy, DHgate, Banggood, CJdropshipping, Taobao, 1688, Tmall, Walmart, JD.com, Kohl's, Wish, Costco, Snapdeal, Flipkart, Bonanza, LTD Commodities, SHEIN, EmmaCloth, AllStarHealth, Lazada, Shopee, SaleYee, Temu, Nordstrom.
 
 = Do I need my own OpenAI API key for the AI features? =
 No. Importify's AI features are powered by OpenAI models running on Importify's own account. There is no OpenAI key to add and no extra setup on your side.
@@ -357,7 +370,7 @@ Save 20% on any yearly plan. For full details, visit our <a href="https://www.im
 You can contact our support by using<a href="https://www.importify.com/contact/" target="_blank"> this form.</a>
 
 #<strong>How to start using Importify:</strong>
-[youtube  youtube.com/watch?v=Vv0vzHgZWfA]
+[youtube https://www.youtube.com/watch?v=Bwcl4Y_ndSY]
 
 == Screenshots ==
 
@@ -368,6 +381,20 @@ You can contact our support by using<a href="https://www.importify.com/contact/"
 5. Join Importify as a supplier
 
 == Changelog ==
+
+= 1.0.20 =
+* SECURITY: The settings page now proves which Importify account it belongs to before Importify answers with account details, and reconnecting after a reinstall is verified with WooCommerce keys that work on your store.
+* SECURITY: Uninstalling Importify now deletes the WooCommerce REST API keys it was given.
+* NEW: The API Connection check asks Importify whether it can actually reach your store, and shows "Account not found", "Not connected" or "Blocked (HTTP code)" with the fix, instead of a generic timeout.
+* COMPAT: Declared compatible with WooCommerce High-Performance Order Storage (HPOS) and the block checkout, so WooCommerce no longer lists Importify as incompatible.
+* COMPAT: Requires the WooCommerce plugin (WordPress plugin dependencies).
+* FIX: "API Connection: Timeout" no longer stays on screen after the connection works again.
+* FIX: The settings page no longer shows "You're all set" when your store has no Importify account.
+* FIX: Reconnecting removes older "Importify - API" keys from WooCommerce, so only the key Importify uses remains.
+* NEW: Redesigned settings page: an account strip with your store, connection status, plan and quick links (Chrome extension, Product Finder, Help Center), clearer check descriptions, and a loading state when you re-run the checks.
+* PRIVACY: The settings page no longer loads fonts or icons from Google; it uses your system font and built-in icons.
+* IMPROVEMENT: The settings page loads faster (status is reused for 10 minutes; "Re-run System Checks" refreshes it), and its styles and scripts load only on the Importify page.
+* IMPROVEMENT: Uninstalling no longer clears your site's caches.
 
 = 1.0.19 =
 * NEW: System diagnostics no longer flag detected security plugins or Cloudflare as blocking issues. Firewall and Cloudflare detections are now informational, so stores running Wordfence, Jetpack, or Cloudflare see an "all set" state instead of a false "issues found" screen. Real failures (SSL, WooCommerce, permalinks, PHP, API connection) still surface as blocking.
