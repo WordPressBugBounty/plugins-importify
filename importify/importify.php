@@ -7,7 +7,7 @@
 /**
  * Plugin Name: Importify
  * Description: Easily import best-selling products, and automate your entire dropshipping process, all with a single click.
- * Version: 1.0.20
+ * Version: 1.0.22
  * Author: Importify
  * Author URI: https://www.importify.com/
  * License: GPLv2 or later
@@ -23,7 +23,8 @@ if (!defined('ABSPATH')) {
 }
 
 define("IMPORTIFY_API_URL", "https://app.importify.net/dashboard");
-define('IMPORTIFY_VERSION', '1.0.20');
+define('IMPORTIFY_VERSION', '1.0.22');
+define('IMPORTIFY_BASENAME', plugin_basename(__FILE__));
 define('IMPORTIFY_PATH', dirname(__FILE__));
 define('IMPORTIFY_FOLDER', basename(IMPORTIFY_PATH));
 define('IMPORTIFY_URL', plugins_url() . '/' . IMPORTIFY_FOLDER);
@@ -175,6 +176,7 @@ function importify_activation_hook()
     {
         delete_option('importify_error');
         delete_option('importify_error_message');
+        delete_option('importify_install_message');
         importify_save_api_key(isset($response['api_key']) ? $response['api_key'] : '');
 
         if ($keys) {
@@ -189,6 +191,9 @@ function importify_activation_hook()
     update_option('importify_error', 'yes');
     if ($response) {
         update_option('importify_error_message', isset($response['message']) ? $response['message'] : 'Error activation plugin!');
+        // 1.0.21: Importify's reason for refusing the install, shown on the setup page (the status check
+        // overwrites importify_error_message on every load)
+        if (!empty($response['message'])) update_option('importify_install_message', sanitize_text_field($response['message']));
     } else {
         update_option('importify_error_message', 'Could not connect to Importify server. Please check your internet connection and try again.');
     }
@@ -216,6 +221,7 @@ function importify_uninstall_hook()
     delete_option('importify_check');
     delete_option('importify_last_error');
     delete_option('importify_wc_key_id');
+    delete_option('importify_install_message');
     delete_transient('importify_status');
 
     // 1.0.20: remove the WooCommerce REST keys Importify was given, so access ends with the plugin.
@@ -279,6 +285,7 @@ function importify_get_status($force = false)
     {
         delete_option('importify_error');
         delete_option('importify_error_message');
+        delete_option('importify_install_message');
         importify_save_api_key(isset($response['api_key']) ? $response['api_key'] : '');
         $status['account'] = 'ok';
         $status['plan'] = isset($response['plan']) ? (string)$response['plan'] : '';
@@ -312,6 +319,57 @@ function importify_get_status($force = false)
     set_transient('importify_status', $status, IMPORTIFY_STATUS_TTL);
     return $status;
 }
+
+/**
+ * 1.0.21: the newer Importify version WordPress already knows about (its own plugin update check),
+ * or null when this copy is up to date. No request to Importify.
+ */
+function importify_update_info()
+{
+    $updates = get_site_transient('update_plugins');
+    if (!is_object($updates) || empty($updates->response[IMPORTIFY_BASENAME])) return null;
+    $u = $updates->response[IMPORTIFY_BASENAME];
+    $new = is_object($u) && !empty($u->new_version) ? (string)$u->new_version : '';
+    if ($new === '' || version_compare($new, IMPORTIFY_VERSION, '<=')) return null;
+    $url = current_user_can('update_plugins')
+        ? wp_nonce_url(self_admin_url('update.php?action=upgrade-plugin&plugin=' . rawurlencode(IMPORTIFY_BASENAME)), 'upgrade-plugin_' . IMPORTIFY_BASENAME)
+        : '';
+    return array('version' => $new, 'url' => $url);
+}
+
+/**
+ * 1.0.22: "Proceed to Importify Dashboard" and "Product Finder" go through this step. It asks Importify for a
+ * single-use login code (valid 2 minutes) and forwards the browser with it, so the account's permanent key no
+ * longer appears in links, browser history or server logs.
+ */
+function importify_go_to_dashboard()
+{
+    if (!current_user_can('manage_options')) {
+        wp_die(esc_html__('You do not have permission to open Importify.', 'importify'), 'Importify', array('response' => 403));
+    }
+    check_admin_referer('importify_go');
+    $to = (isset($_GET['to']) && sanitize_key(wp_unslash($_GET['to'])) === 'product-finder') ? 'product-finder' : '';
+    $api_key = get_option('importify_api_key');
+    if (!$api_key) {
+        wp_redirect('https://app.importify.net/dashboard/');
+        exit;
+    }
+    $response = importify_send_request('/woocomerce/status', array(
+        'store' => get_site_url(),
+        'api_key' => $api_key,
+        'event' => 'login_code',
+    ));
+    if ($response && !empty($response['success']) && isset($response['code']) && preg_match('/^[a-f0-9]{64}$/', (string)$response['code'])) {
+        wp_redirect(IMPORTIFY_API_URL . '/woocomerce/login-by-code?code=' . $response['code'] . ($to ? '&to=' . $to : ''));
+        exit;
+    }
+    wp_die(
+        esc_html__('Couldn’t reach Importify. Please try again in a moment.', 'importify'),
+        'Importify',
+        array('response' => 502, 'back_link' => true)
+    );
+}
+add_action('admin_post_importify_go', 'importify_go_to_dashboard');
 
 function importify_admin_menu_page_html()
 {

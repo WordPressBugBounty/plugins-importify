@@ -4,7 +4,7 @@ Tags: dropshipping, woocommerce, aliexpress, import-products, alibaba
 Requires at least: 6.0
 Requires PHP: 7.2
 Tested up to: 7.0
-Stable tag: 1.0.20
+Stable tag: 1.0.22
 Plugin URI: https://importify.com
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -381,6 +381,13 @@ You can contact our support by using<a href="https://www.importify.com/contact/"
 5. Join Importify as a supplier
 
 == Changelog ==
+
+= 1.0.22 =
+* SECURITY: "Proceed to Importify Dashboard" and "Product Finder" now sign you in with a single-use code that expires after two minutes, instead of a link containing your account key. The buttons work the same way.
+
+= 1.0.21 =
+* NEW: The setup page shows a Plugin Version check. When a newer Importify is available, it says so and links to the one-click update.
+* NEW: When Importify can't reconnect a reinstalled store (for example, the WordPress admin email changed), the API Connection check shows Importify's reason and the next step, such as approving the store from the email sent to the account owner.
 
 = 1.0.20 =
 * SECURITY: The settings page now proves which Importify account it belongs to before Importify answers with account details, and reconnecting after a reinstall is verified with WooCommerce keys that work on your store.

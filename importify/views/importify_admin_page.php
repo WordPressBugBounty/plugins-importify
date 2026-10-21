@@ -4,7 +4,7 @@ if (!current_user_can('manage_options')) { wp_die(esc_html__('You do not have su
 
 /**
  * Importify settings page, 1.0.20 (Claude Design "Importify WooCommerce Plugin Settings").
- * Header, account strip, one card with seven checks, footer actions. System fonts and inline SVG icons.
+ * Header, account strip, one card with eight checks, footer actions. System fonts and inline SVG icons.
  * Inputs: $importify_status (importify_get_status) and the importify_check option, both set by
  * importify_admin_menu_page_html().
  */
@@ -32,6 +32,7 @@ $importify_icons = array(
     'fw'   => 'M12 3l8 3v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6z',
     'cf'   => 'M7 18h10.5a4 4 0 00.6-7.95A6 6 0 006.3 9.5 4.3 4.3 0 007 18z',
     'api'  => 'M9 3v5M15 3v5M6 8h12v3a6 6 0 01-12 0zM12 17v4',
+    'ver'  => 'M4 12a8 8 0 0114-5.3L20 9M20 4v5h-5M20 12a8 8 0 01-14 5.3L4 15M4 20v-5h5',
 );
 $importify_pill_icons = array('pass' => 'M3.5 8.3l3 3 6-6.6', 'fail' => 'M4.5 4.5l7 7M11.5 4.5l-7 7', 'info' => 'M8 7.2v4.6M8 4.4v.1');
 
@@ -39,7 +40,7 @@ function importify_svg_external() {
     return '<svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 2H2v8h8V7M7 2h3v3M10 2L5.5 6.5"/></svg>';
 }
 
-/* ── The seven checks: [id, name, state pass|fail|info, description, pill (null = Passed/Failed), steps, guide] ── */
+/* ── The eight checks: [id, name, state pass|fail|info, description, pill (null = Passed/Failed), steps, guide] ── */
 $checks = array();
 
 $ssl_ok = isset($ic['ssl_active']) && $ic['ssl_active'] === "true";
@@ -93,8 +94,16 @@ if ($st['account'] === 'no_answer') {
         array('Make sure your host allows outgoing connections to <code>app.importify.net</code>.', 'Try again in a few minutes with Re-run System Checks.'));
     $conn = array('fail', 'No answer');
 } elseif ($st['account'] === 'not_found') {
-    $api = array('fail', 'Importify couldn’t find an account for this store’s plugin key.', 'Account not found', $reconnect_steps);
-    $conn = array('fail', 'Account not found');
+    // 1.0.21: when Importify refused the install, show its reason (e.g. the approval email it sent)
+    $install_msg = (string)get_option('importify_install_message', '');
+    if ($install_msg !== '') {
+        $api = array('fail', $install_msg, 'Not connected', stripos($install_msg, 'emailed') !== false
+            ? array('Open the email sent to the account owner and click Approve this store.', 'Go to Plugins → Installed Plugins, click Deactivate under Importify, then Activate.', 'Come back here and re-run the checks.')
+            : array('Contact us at <a href="https://www.importify.com/contact/" target="_blank" rel="noopener noreferrer">importify.com/contact</a> and we’ll reconnect this store.'));
+    } else {
+        $api = array('fail', 'Importify couldn’t find an account for this store’s plugin key.', 'Account not found', $reconnect_steps);
+    }
+    $conn = array('fail', $install_msg !== '' ? 'Not connected' : 'Account not found');
 } elseif ($st['connected'] !== 'yes') {
     $api = array('fail', 'Importify doesn’t have access to your WooCommerce store yet.', 'Not connected',
         array('Make sure the WooCommerce REST API is enabled.', 'Go to Plugins → Installed Plugins, click Deactivate under Importify, then Activate.', 'Come back here and re-run the checks.'));
@@ -112,6 +121,17 @@ if ($st['account'] === 'no_answer') {
 if ($le && $api[0] === 'fail') $api[3][] = 'Last error: <em>' . esc_html(substr($le, 0, 100)) . '</em>';
 $checks[] = array('api', 'API Connection', $api[0], $api[1], $api[2], $api[3], $api[0] === 'fail' ? $guide_connection : '');
 
+// 1.0.21: plugin version, from WordPress's own update check (importify_update_info)
+$upd = importify_update_info();
+$checks[] = array('ver', 'Plugin Version', $upd ? 'info' : 'pass',
+    $upd ? sprintf('Version %s is available. You have %s.', $upd['version'], IMPORTIFY_VERSION) : sprintf('Importify %s is the latest version.', IMPORTIFY_VERSION),
+    $upd ? 'Update available' : null,
+    $upd ? ($upd['url'] !== ''
+        ? array('<a href="' . esc_url($upd['url']) . '">Update Importify now</a>. It takes a few seconds and keeps your settings.', 'Come back here and re-run the checks.')
+        : array('Ask a site administrator to update Importify in Plugins → Installed Plugins.'))
+        : array(),
+    '');
+
 /* ── Preview overrides (support tool, admin-only): ?error1=preview … ?error7=preview, ?preview=all, ?preview=mixed ── */
 $importify_preview_map = array(
     0 => array('fail', 'This site doesn’t load over HTTPS, which Importify needs to send products.', null),
@@ -121,6 +141,7 @@ $importify_preview_map = array(
     4 => array('info', 'Wordfence Security detected. It may slow or block imports.', 'Detected'),
     5 => array('info', 'Cloudflare detected. Its bot protection can block Importify.', 'Detected'),
     6 => array('fail', 'Importify couldn’t find an account for this store’s plugin key.', 'Account not found'),
+    7 => array('info', 'Version 9.9.9 is available. You have ' . IMPORTIFY_VERSION . '.', 'Update available'),
 );
 $importify_preview = isset($_GET['preview']) ? sanitize_key(wp_unslash($_GET['preview'])) : '';
 $importify_any_preview = in_array($importify_preview, array('all', 'mixed'), true);
@@ -146,8 +167,8 @@ foreach ($checks as $c) {
 $ok = ($fails === 0);
 if ($ok) {
     $headline = 'Your store is ready for Importify';
-    $sub = $infos ? 'All required checks passed. Blue items are worth a look but won’t stop imports.' : 'All 7 checks passed. You can start importing products.';
-    $summary = $infos ? sprintf('%d passed · %d to review', $passed, $infos) : '7 of 7 passed';
+    $sub = $infos ? 'All required checks passed. Blue items are worth a look but won’t stop imports.' : sprintf('All %d checks passed. You can start importing products.', count($checks));
+    $summary = $infos ? sprintf('%d passed · %d to review', $passed, $infos) : sprintf('%d of %d passed', count($checks), count($checks));
 } else {
     $headline = $fails === 1 ? '1 issue needs fixing before you import' : sprintf('%d issues need fixing before you import', $fails);
     $sub = 'Fix the red items, then re-run the checks.' . ($infos ? ' Blue items are worth a look but won’t stop imports.' : '');
@@ -155,15 +176,17 @@ if ($ok) {
 }
 
 /* ── Links ── */
-$dashboard_url = $api_key ? IMPORTIFY_API_URL . '/woocomerce/login-by-token?token=' . rawurlencode($api_key) : 'https://app.importify.net/dashboard/';
-$finder_url = $api_key ? $dashboard_url . '&to=product-finder' : $dashboard_url;
+// 1.0.22: one-time login through importify_go_to_dashboard() instead of a link with the permanent key
+$go_args = array('action' => 'importify_go', '_wpnonce' => wp_create_nonce('importify_go'));
+$dashboard_url = $api_key ? add_query_arg($go_args, admin_url('admin-post.php')) : 'https://app.importify.net/dashboard/';
+$finder_url = $api_key ? add_query_arg(array_merge($go_args, array('to' => 'product-finder')), admin_url('admin-post.php')) : $dashboard_url;
 $links = array(
     'Chrome extension' => 'https://chromewebstore.google.com/detail/importify/mcldgfkcaapkhccpbhjjchamjfbpbgcp',
     'Product Finder' => $finder_url,
     'Help Center' => 'https://www.importify.com/help/',
 );
 $recheck_url = wp_nonce_url(admin_url('admin.php?page=importify&importify_recheck=1'), 'importify_recheck');
-$step_tags = array('code' => array(), 'em' => array(), 'strong' => array());
+$step_tags = array('code' => array(), 'em' => array(), 'strong' => array(), 'a' => array('href' => array(), 'target' => array(), 'rel' => array()));
 ?>
 <div id="importify-setup-wrap" class="wrap">
 <div class="imf-page">
@@ -171,7 +194,7 @@ $step_tags = array('code' => array(), 'em' => array(), 'strong' => array());
 
     <?php if ($importify_any_preview): ?>
     <div class="imf-preview" role="note">
-        <span>Preview mode: showing simulated data. <a href="<?php echo esc_url(remove_query_arg(array('preview', 'error1', 'error2', 'error3', 'error4', 'error5', 'error6', 'error7'))); ?>">Exit preview</a></span>
+        <span>Preview mode: showing simulated data. <a href="<?php echo esc_url(remove_query_arg(array('preview', 'error1', 'error2', 'error3', 'error4', 'error5', 'error6', 'error7', 'error8'))); ?>">Exit preview</a></span>
     </div>
     <?php endif; ?>
 
